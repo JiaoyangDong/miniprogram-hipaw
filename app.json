@@ -8,7 +8,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "HiPaw",
     "navigationBarTextStyle":"black", 
     "navigationStyle": "custom"
   },
@@ -29,6 +29,7 @@
       "text": "Me"
     }]
   },
+  
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

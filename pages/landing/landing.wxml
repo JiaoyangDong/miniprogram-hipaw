@@ -1,2 +1,28 @@
 <!--pages/landing/landing.wxml-->
-<text>pages/landing/landing.wxml</text>
+<view class="header">
+  <text class="h1">HiPaw</text>
+</view>
+<view class="banner">
+  <image src="https://images.unsplash.com/photo-1415369629372-26f2fe60c467?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" mode="aspectFill"></image>
+</view>
+
+<view class="title">
+  <text class="h1">fluffy friends waiting for adoption⬇︎⬇︎</text>
+</view>
+
+<view class="cards">
+
+  <view class="card">
+    <text class="h2">dogs</text>
+  </view>
+
+  <view class="card">
+
+    <text class="h2">cats</text>
+  </view>
+
+  <view class="card">
+    <text class="h2">others</text>
+  </view>
+
+</view>
