@@ -1,0 +1,29 @@
+/* pages/pets/index.wxss */
+
+.cards {
+  margin: auto 16rpx;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  gap: 10rpx;
+}
+.card-product {
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 2rpx;
+  height: 440rpx;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 10px;
+  font-weight: light;
+  text-shadow: 1px 1px 1px rgba(80, 31, 31, 0);
+  border-radius: 3rpx;
+  border: 1px solid #f5efef;
+}
+
+.card-product image {
+  height: 350rpx;
+  width: 100%;
+  object-fit: cover;
+}

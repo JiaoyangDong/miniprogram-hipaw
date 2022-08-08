@@ -1,0 +1,42 @@
+<!--pages/pets/form.wxml-->
+
+<view class="container">
+  <form>
+    <view class="form-item">Pet name
+      <input type="text" name="name" value="{{formData.name}}"/>
+        </view>
+    <view class="form-item">age
+      <input type="integer" name="age" value="{{formData.age}}"/>
+        </view>
+      <view class="form-item">species
+        <radio-group name="species">
+          <label><radio value="dog"/>dog</label>
+          <label><radio value="cat"/>cat</label>
+          <label><radio value="other"/>other</label>
+        </radio-group>
+          </view>
+
+    <view class="form-item description">description
+      <input type="text" name="description" value="{{formData.description}}"/>    
+        </view>
+
+    <view  class="form-item">gender
+        <radio-group name="sex">
+          <label><radio value="female"/>female</label>
+          <label><radio value="male"/>male</label>
+        </radio-group>
+          </view>
+
+    <view class="form-item">fur type
+        <radio-group name="fur_type">
+          <label><radio value="long"/>long</label>
+          <label><radio value="short"/>short</label>
+        </radio-group>
+          </view>
+
+    <view class="btn-area">
+        <button style="margin: 30rpx 0" type="default" formType="submit">Post</button>
+        <button style="margin: 30rpx 0" formType="reset">Reset</button>
+    </view>
+  </form>
+</view>
