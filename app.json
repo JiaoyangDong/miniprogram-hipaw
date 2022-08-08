@@ -1,13 +1,33 @@
 {
   "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/landing/landing",
+    "pages/pets/index",
+    "pages/pets/form", 
+    "pages/users/profile"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle":"black", 
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "backgroundColor": "#FBD1A2",
+    "color": "#1D4E89",
+    "list": [{
+      "pagePath": "pages/landing/landing",
+      "text": "Home"
+    }, { 
+      "pagePath": "pages/pets/index",
+      "text": "Find"
+    }, {
+      "pagePath": "pages/pets/form",
+      "text": "Post"
+    }, {
+      "pagePath": "pages/users/profile",
+      "text": "Me"
+    }]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
