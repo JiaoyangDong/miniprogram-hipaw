@@ -75,4 +75,5 @@ page{
   font-size: 20px;
   background: #F8F2DC;
   border-radius: 4px;
+
 }

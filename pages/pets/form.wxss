@@ -1,0 +1,27 @@
+/* pages/pets/form.wxss */
+
+input {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10rpx;
+}
+
+.container{
+  background: #00B2CA;
+  margin: 0 0;
+}
+
+form {
+  background:#7DCFB6;
+  padding: 70rpx;
+  color: #1D4E89;
+  border-radius: 8px;
+  font-size: 12pt;
+}
+.form-item {
+  margin-bottom: 15rpx;
+}
+
+button {
+  color: #1D4E89;
+}

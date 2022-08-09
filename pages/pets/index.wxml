@@ -1,0 +1,18 @@
+<!--pages/pets/index.wxml-->
+<text>pages/pets/index.wxml</text>
+
+<view class="cards">
+  <block wx:if="{{pets.length <= 0}}">
+    <view> Oops, there is no pet listed yet</view>
+  </block>
+  <block wx:else>
+    <!-- wx:for-item="pet" bindtap="goTopet"  -->
+    <view wx:for="{{pets}}" data-id="{{pet.id}}" class="card-product">
+      <image src="{{pet.image}}"></image>
+      <view class="pet-info">
+        <text class="h2">{{pet.name}}</text>
+        <text class="p">📍 {{pet.sex}}</text>
+      </view>
+    </view>
+  </block>  
+</view>
