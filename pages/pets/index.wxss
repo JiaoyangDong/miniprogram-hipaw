@@ -1,29 +1,42 @@
-/* pages/pets/index.wxss */
-
-.cards {
-  margin: auto 16rpx;
-  display: grid;
-  grid-template-columns: 2fr 2fr;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  gap: 10rpx;
-}
-.card-product {
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 2rpx;
-  height: 440rpx;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  font-size: 10px;
-  font-weight: light;
-  text-shadow: 1px 1px 1px rgba(80, 31, 31, 0);
-  border-radius: 3rpx;
-  border: 1px solid #f5efef;
+.cards-box {
+  columns: 2;
+  padding: 20rpx;
 }
 
-.card-product image {
-  height: 350rpx;
-  width: 100%;
-  object-fit: cover;
+.pet-image-background {
+  /* background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)); */
+}
+
+.pet-card {
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  width: 100%; 
+  margin: 20rpx 0;
+  box-shadow: 0 0 15rpx rgba(0,0,0,0.5);
+}
+
+.pet-info {
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  bottom: 10rpx;
+  left: 15rpx;
+}
+
+.pet-sex-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+
+.filter-banner {
+  background-color: #FBD1A2;
+  /* border-top: 1px solid #1D4E89; */
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  margin-bottom: 20rpx;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }

@@ -1,12 +1,13 @@
 // pages/pets/index.js
 const app = getApp()
+
 Page({
 
   /**
    * Page initial data
    */
   data: {
-
+    pets: []
   },
 
   /**
@@ -33,16 +34,22 @@ Page({
       method: "GET",
       header: app.globalData.header,
       success(res) {
-        console.log({res})
+        console.log(res.data)
         page.setData({
-          pets: res.data.pets
+          pets: res.data
         })
       }
     })
-    // const pets = wx.getStorageSync('pets')
-    // this.setData({
-    //   pets: pets
-    // })
+    page.data.pets.forEach((pet) => {
+      let sex = pet.sex
+      if(sex === "male"){
+        document.querySelector('.pet-sex-icon').src = '/images/boy.png';
+      }else if(sex === "female"){
+        document.querySelector('.pet-sex-icon').src = '/images/boy.png';
+      } else {
+        document.querySelector('.pet-sex-icon').src = '';
+      }
+    })
   },
 
   /**
@@ -78,5 +85,10 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+  goToPet(e) {
+    wx.navigateTo({
+        url: `/pages/pets/show?index=${e.currentTarget.dataset.id}`,
+      })
   }
 })
