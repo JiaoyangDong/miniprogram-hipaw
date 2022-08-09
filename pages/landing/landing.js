@@ -17,7 +17,8 @@ Page({
   currentView: DEFAULT_PAGE,
   data: {
     toView: `card_${DEFAULT_PAGE}`,
-    list: ['dog#1', 'dog#2', 'cat#1', 'cat#2', 'bunny']
+    // list: ['dog#1', 'dog#2', 'cat#1', 'cat#2', 'bunny']
+ 
   },
 
   touchStart(e) {
@@ -54,7 +55,19 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow() {
-
+    let page = this
+    wx.request({
+      url: 'https://hipaw-api.herokuapp.com/api/v1/pets',
+      method: 'GET',
+      success(res) {
+        console.log({res})
+        const pets = res.data
+        page.setData({
+          pets: pets.slice(0,5)
+        })
+        console.log(page.data.pets)
+      }
+    })
   },
 
   /**
@@ -91,4 +104,14 @@ Page({
   onShareAppMessage() {
 
   }
+
+  // goToPets(e) {
+  //   console.log('function goToPets e', e)
+  //   const pets = this.data.pets[e.currentTarget.dataset.id]
+  //   console.log({pets})
+
+  //   wx.navigateTo({
+  //     url: `/pages/pets/index?id=${e.currentTarget.dataset.id}`,
+  //   })
+  // }
 })
