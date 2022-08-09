@@ -32,6 +32,7 @@ Page({
     wx.request({
       url: `${app.globalData.baseURL}/pets`,
       method: "GET",
+      header: app.globalData.header,
       success(res) {
         console.log(res.data)
         page.setData({
