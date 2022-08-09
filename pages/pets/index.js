@@ -1,4 +1,5 @@
 // pages/pets/index.js
+const app = getApp()
 Page({
 
   /**
@@ -28,19 +29,20 @@ Page({
   onShow() {
     const page = this
     wx.request({
-      url: 'http://localhost:3000/api/v1/pets',
+      url: `${app.globalData.baseURL}/pets`,
       method: "GET",
+      header: app.globalData.header,
       success(res) {
-        console.log({rest})
+        console.log({res})
         page.setData({
           pets: res.data.pets
         })
       }
     })
-    const pets = wx.getStorageSync('pets')
-    this.setData({
-      pets: pets
-    })
+    // const pets = wx.getStorageSync('pets')
+    // this.setData({
+    //   pets: pets
+    // })
   },
 
   /**
