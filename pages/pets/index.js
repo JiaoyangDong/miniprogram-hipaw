@@ -1,11 +1,13 @@
 // pages/pets/index.js
+const app = getApp()
+
 Page({
 
   /**
    * Page initial data
    */
   data: {
-
+    pets: []
   },
 
   /**
@@ -28,18 +30,24 @@ Page({
   onShow() {
     const page = this
     wx.request({
-      url: 'http://localhost:3000/api/v1/pets',
+      url: `${app.globalData.baseURL}/pets`,
       method: "GET",
       success(res) {
-        console.log({rest})
+        console.log(res.data)
         page.setData({
-          pets: res.data.pets
+          pets: res.data
         })
       }
     })
-    const pets = wx.getStorageSync('pets')
-    this.setData({
-      pets: pets
+    page.data.pets.forEach((pet) => {
+      let sex = pet.sex
+      if(sex === "male"){
+        document.querySelector('.pet-sex-icon').src = '/images/boy.png';
+      }else if(sex === "female"){
+        document.querySelector('.pet-sex-icon').src = '/images/boy.png';
+      } else {
+        document.querySelector('.pet-sex-icon').src = '';
+      }
     })
   },
 
@@ -76,5 +84,10 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+  goToPet(e) {
+    wx.navigateTo({
+        url: `/pages/pets/show?index=${e.currentTarget.dataset.id}`,
+      })
   }
 })
