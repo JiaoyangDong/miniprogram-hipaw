@@ -10,6 +10,37 @@ page{
   /* overflow: hidden; */
   background: #0D1740;
 }
+.btn-white {
+  margin: 60rpx;
+}
+
+.weui-btn-blue {
+  margin: 60rpx;
+  background-color:#1D4E89;
+  color: white;
+}
+
+.card-banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  height: 10px;
+}
+.banner-description {
+  text-align: center;
+  padding: 20px;
+}
+
+.banner-description .h1 {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+.banner-description .h2 {
+  color: white;
+  font-size: 16px;
+}
 
 .card-event {
   background-size: cover;
@@ -25,6 +56,7 @@ page{
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
 
 .card-title {
   padding: 10rpx;
@@ -57,7 +89,7 @@ page{
 .scroll-box{
   white-space: nowrap;
   /* height: 105vh; */
-  height: 50vh;
+  height: 45vh;
 }
 
 .card-box{
@@ -66,14 +98,28 @@ page{
 
 .card{
   display: flex;
-  justify-content: center;
   align-items: center;
+  vertical-align: center;
+  justify-content: center;
+  flex-direction:column;
+
   box-sizing: border-box;
-  height: 30vh;
-  width: 45vw;
-  margin: 5vh 10vw;
+  height: 40vh;
+  width: 60vw;
+  margin: 5vh 6vw;
   font-size: 20px;
   background: #F8F2DC;
   border-radius: 4px;
+}
+.card-image {
+  height: 40vw;
+  width: 40vw;
+}
 
+.pet-description .h1 {
+  font-size: 16px;
+  font-weight: bold;
+}
+.pet-description .h2 {
+  font-size: 12px;
 }
