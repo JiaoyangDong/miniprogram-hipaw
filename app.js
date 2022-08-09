@@ -10,17 +10,17 @@ App({
     const app = this
     wx.login({
       success: res => {
-        console.log(res)
+        console.log("Hello from app.js: res",res)
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         wx.request({
           url: `${app.globalData.baseURL}/login`,
           method: 'post',
           data: { code: res.code }, // pass code in request body
           success(loginRes) {
-            console.log(loginRes) 
+            console.log("Hello from app.js: loginRes",loginRes) 
             app.globalData.user = loginRes.data.user // save in globalData, so we can use them throughout the MP
             app.globalData.header = loginRes.data.headers
-            console.log(app.globalData)
+            console.log("Hello from app.js: app.globalData",app.globalData)
           }
         })
       }
