@@ -1,28 +1,25 @@
 <!--pages/landing/landing.wxml-->
-<view class="header">
-  <text class="h1">HiPaw</text>
-</view>
-<view class="banner">
-  <image src="https://images.unsplash.com/photo-1415369629372-26f2fe60c467?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" mode="aspectFill"></image>
-</view>
-
-<view class="title">
-  <text class="h1">fluffy friends waiting for adoption⬇︎⬇︎</text>
-</view>
-
-<view class="cards">
-
-  <view class="card">
-    <text class="h2">dogs</text>
+<view class="pageContainer">
+  <view class="card-event" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1548767797-d8c844163c4c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80)">
+  adoption day coming soon..
   </view>
 
-  <view class="card">
-
-    <text class="h2">cats</text>
+  <view class="card-title">
+    <text class="h1">fluffy friends waiting for adoption</text>
   </view>
 
-  <view class="card">
-    <text class="h2">others</text>
+  <view class="description">
+    <text class="h2">⇦ scroll left</text>
   </view>
 
+  <scroll-view class="scroll-box" scroll-x scroll-with-animation
+    scroll-into-view="{{toView}}"
+    bindtouchstart="touchStart"
+    bindtouchend="touchEnd">
+      <view wx:for="{{list}}" wx:key="{{item}}" class="card-box" id="card_{{index}}">
+        <view class="card">
+          <text>{{item}}</text>
+        </view>
+      </view>
+  </scroll-view>
 </view>

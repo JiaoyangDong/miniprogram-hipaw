@@ -1,63 +1,78 @@
 /* pages/landing/landing.wxss */
-.header {
-  text-align: center;
-  background-color: #7DCFB6;
-}
-.header text {
-  top: 50rpx;
-  font-size: 50rpx;
-  font-weight: bold;
-  color: black;
-  text-shadow: black;
+.pageContainer {
+  /* min-height: 80vh; */
+  background-color: white;
+  overflow-y: scroll;
 }
 
-.banner {
-  /* position: sticky; */
-  padding: 10rpx;
-  margin-top: 10rpx;
-  left: 0; right: 0;
-  /* background-size:cover; */
-  height: 600rpx;
-  /* width: 750rpx; */
-  text-align: center;
-  /* background-position: center; */
-  /* display: flex; justify-content: center; */
+page{
+  height: 100vh;
+  /* overflow: hidden; */
+  background: #0D1740;
 }
 
-.title {
-  padding: 10rpx;
-  margin: 10rpx;
-  text-align: center;
-}
-
-.title .h1 {
-  font-size: 25px;
-  font-weight: bold;
-  padding: 20rpx;
-  text-align: center;
-}
-
-.cards {
-  padding: 10rpx;
-  margin: 10rpx;
+.card-event {
+  background-size: cover;
+  background-position: center;
+  height: 220px;
   display: flex;
   justify-content: center;
-  /* grid-template-columns: 1fr 1fr 1fr; */
-}
-
-.card {
-  padding: 10rpx;
-  margin: 20rpx;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
-  background-color: #FBD1A2;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card .h2 {
+.card-title {
+  padding: 10rpx;
+  width: 80vw;
+  margin: 5vh 10vw;
+  text-align: center;
+  /* background-color: #7DCFB6; */
+}
+
+.description{
+  display: flex;
+  align-items: center;
+  vertical-align: center;
+  justify-content: center;
+  flex-direction: row;
+  /* padding: 10rpx;
+  width: 80vw; */
+}
+
+.card-title .h1 {
   font-size: 20px;
   font-weight: bold;
-  margin: 20rpx;
-  color: black;
-  /* position: absolute; */
-  /* bottom: 20rpx; */
+}
+.card-title .h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: gray;
+}
+
+.scroll-box{
+  white-space: nowrap;
+  /* height: 105vh; */
+  height: 50vh;
+}
+
+.card-box{
+  display: inline-block;
+}
+
+.card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  height: 30vh;
+  width: 45vw;
+  margin: 5vh 10vw;
+  font-size: 20px;
+  background: #F8F2DC;
+  border-radius: 4px;
 }
