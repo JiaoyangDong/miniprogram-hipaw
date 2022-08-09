@@ -7,13 +7,30 @@ App({
     wx.setStorageSync('logs', logs)
 
     // 登录
+    const app = this
     wx.login({
       success: res => {
+        console.log(res)
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        wx.request({
+          url: `${app.globalData.baseURL}/login`,
+          method: 'post',
+          data: { code: res.code }, // pass code in request body
+          success(loginRes) {
+            console.log(loginRes) 
+            app.globalData.user = loginRes.data.user // save in globalData, so we can use them throughout the MP
+            app.globalData.header = loginRes.data.headers
+            console.log(app.globalData)
+          }
+        })
       }
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    header: null,
+    user: null,
+    // baseURL: "https://hipaw-api.herokuapp.com/api/v1"
+    baseURL: "http://localhost:3000/api/v1"
   }
 })
