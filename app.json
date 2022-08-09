@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/index/index",
     "pages/landing/landing",
     "pages/pets/index",
     "pages/pets/form", 
@@ -7,10 +8,9 @@
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#FBD1A2",
     "navigationBarTitleText": "HiPaw",
-    "navigationBarTextStyle":"black", 
-    "navigationStyle": "custom"
+    "navigationBarTextStyle":"black"
   },
   "tabBar": {
     "backgroundColor": "#FBD1A2",

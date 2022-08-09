@@ -1,18 +1,19 @@
 <!--pages/pets/index.wxml-->
-<text>pages/pets/index.wxml</text>
-
-<view class="cards">
-  <block wx:if="{{pets.length <= 0}}">
-    <view> Oops, there is no pet listed yet</view>
+<view class="filter-banner">filter stuff goes here</view>
+<view class="cards-box">
+  <block wx:if="{{!pets.length}}">
+    <view class="no-pets-message">Oops, there aren't any pets listed yet!</view>
   </block>
   <block wx:else>
-    <!-- wx:for-item="pet" bindtap="goTopet"  -->
-    <view wx:for="{{pets}}" data-id="{{pet.id}}" class="card-product">
-      <image src="{{pet.image}}"></image>
-      <view class="pet-info">
-        <text class="h2">{{pet.name}}</text>
-        <text class="p">📍 {{pet.sex}}</text>
+    <!-- <view wx:for="{{pets}}" wx:for-item="pet" bindtap="goToPet" data-id="{{pet.id}}"> -->
+      <view wx:for="{{pets}}" wx:for-item="pet" bindtap="goToPet" data-id="{{pet.id}}" class="pet-card">
+        <image style="width: 100%;" src="{{pet.image_url}}" mode="widthFix"></image>
+        <view class="pet-info">
+          <view class="pet-name">{{pet.name}}</view>
+          <view class="pet-sex"><image class="pet-sex-icon" src="/images/boy.png"></image></view>
+          <view class="pet-location">📍 {{pet.district}}</view>
+        </view>
       </view>
-    </view>
+    <!-- </view> -->
   </block>  
 </view>
