@@ -4,7 +4,8 @@
     "pages/landing/landing",
     "pages/pets/index",
     "pages/pets/form",
-    "pages/users/profile"
+    "pages/users/profile", 
+    "pages/pets/show"
   ],
   "window":{
     "backgroundTextStyle":"light",

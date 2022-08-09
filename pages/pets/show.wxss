@@ -1,0 +1,11 @@
+/* pages/pets/show.wxss */
+
+.main {
+  padding: 40rpx;
+}
+
+.fixed-bottom {
+  position: fixed;
+  bottom: 50rpx; left:20rpx; right:20rpx;
+  display: flex;
+}
