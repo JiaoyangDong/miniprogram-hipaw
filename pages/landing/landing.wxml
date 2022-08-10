@@ -5,7 +5,7 @@
       <view class="banner-description">
         <view class="h1">Adoption Day</view>
         <view class="h2">Aug 13</view>
-        <button class="btn-white" href="#">see events</button>
+        <!-- <button class="btn-white" href="#">see events</button> -->
       </view>
     </view>
   </view>
