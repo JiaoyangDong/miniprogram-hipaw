@@ -1,17 +1,25 @@
 /* pages/pets/show.wxss */
 
 .main {
-  padding: 40rpx;
+  align-items: center;
 }
 .favorite-icon {
   display: flex;
   position: fixed;
-  margin-left: 600rpx;
+  margin-left: 620rpx;
+  margin-top: 50rpx;
+}
+
+.pet-avt {
+  height: 350px;
+  border-radius: 8px;
+  margin-bottom: 30rpx;
+  width: 100%;
 }
 
 .icon {
-  height: 50rpx;
-  width: 50rpx;
+  height: 60rpx;
+  width: 60rpx;
 }
 
 .fixed-bottom {
@@ -19,7 +27,17 @@
   bottom: 50rpx; left:20rpx; right:20rpx;
   display: flex;
 }
+ .pet-info {
+  margin-left: 70rpx
+ }
 
-.main image {
-  margin: auto 8px;
+ .h1 {
+   font-size: 16pt;
   }
+
+  .og-button {
+    background-color:#F79256;
+    color: black;
+    margin-bottom: 50rpx;
+  }
+  
