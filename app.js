@@ -1,4 +1,7 @@
 // app.js
+import event from './utils/event';
+wx.event = event;
+
 App({
   onLaunch() {
     // 展示本地存储能力
@@ -21,6 +24,7 @@ App({
             app.globalData.user = loginRes.data.user // save in globalData, so we can use them throughout the MP
             app.globalData.header = loginRes.data.headers
             console.log("Hello from app.js: app.globalData",app.globalData)
+            event.emit('loginFinished')
           }
         })
       }

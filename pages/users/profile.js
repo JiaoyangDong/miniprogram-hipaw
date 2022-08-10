@@ -1,4 +1,5 @@
 // pages/users/profile.js
+let app = getApp()
 Page({
 
   /**
@@ -26,7 +27,23 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow() {
-
+    let page = this
+    wx.request({
+      url: `${app.globalData.baseURL}/pets`,
+      method: "GET",
+      header: app.globalData.header,
+      success(res) {
+        console.log("From profile.js: onshow request succesfully")
+        console.log("Frome profile.js: res",res)
+        if (res.statusCode === 200) {
+          const pets = res.data
+          console.log("From profile.js: pets", pets)
+          page.setData({pets: pets})
+        } else {
+          console.log("From profile.js: status code is", res.statusCode)
+        }
+      }
+    })
   },
 
   /**

@@ -2,6 +2,7 @@
   "pages":[
     "pages/landing/landing",
     "pages/pets/index",
+    "pages/pets/show",
     "pages/pets/form",
     "pages/users/profile",
     "pages/pets/show",
