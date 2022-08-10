@@ -37,9 +37,16 @@
   width: 70rpx;
 }
 
-.fixed-bottom {
-  position: fixed;
-  bottom: 50rpx; left:20rpx; right:20rpx;
+.sticky-bottom {
+  position: sticky;
+  bottom: 0rpx;
+  padding: 20rpx;
+  background-color: white;
+  height: 100rpx;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  text-align: center;
   display: flex;
 }
  .pet-info {
@@ -55,7 +62,14 @@
     color: black;
     margin-bottom: 50rpx;
   }
+  .edit-btn {
+    margin-bottom: 15rpx;
+  }
   
+  .delete-btn {
+    margin-bottom: 15rpx;
+  }
+
   .filter {
     position: absolute;
     background-color: black;

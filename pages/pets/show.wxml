@@ -20,10 +20,10 @@
     <button class="og-button">Meet & Greet</button>
   </view>
 
-  <view class="fixed-bottom">
-    <!-- bindtap="edit" -->
-    <button class="weui-btn-orange">Edit</button>
-    <!-- bindtap="delete" -->
-    <button type="warn">Delete</button>
+  <view class="sticky-bottom">
+    <button bindtap="edit" class="edit-btn" type="default" plain="true">edit</button>
+   
+    <button bindtap="delete" class="delete-btn" type="warn" plain="true">delete</button>
   </view>
+
 </view>
