@@ -28,6 +28,7 @@ Page({
    */
   onShow() {
     const user_id = app.globalData.user.id
+    const page = this
     wx.request({
       url: `${app.globalData.baseURL}/profile/${user_id}`,
       method: "GET",
@@ -36,7 +37,9 @@ Page({
         console.log("From profile.js: onshow request succesfully")
         console.log("Frome profile.js: res",res)
         if (res.statusCode === 200) {
-          const data = res.data
+          page.setData({
+            pets: res.data.pets
+          })
         } else {
           console.log("From profile.js: status code is", res.statusCode)
         }

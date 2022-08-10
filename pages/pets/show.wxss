@@ -4,21 +4,22 @@
   align-items: center;
 }
 .favorite-icon {
-  display: flex;
-  position: fixed;
-  margin-left: 620rpx;
-  margin-top: 50rpx;
+  position: absolute;
+  top: 30rpx;
+  right: 40rpx;
+  z-index: 2;
 }
 
 .pet-avt {
   height: 350px;
   margin-bottom: 30rpx;
   width: 100%;
+  position: relative;
 }
 
 .icon {
-  height: 60rpx;
-  width: 60rpx;
+  height: 70rpx;
+  width: 70rpx;
 }
 
 .fixed-bottom {
@@ -40,3 +41,13 @@
     margin-bottom: 50rpx;
   }
   
+  .filter {
+    position: absolute;
+    background-color: black;
+    opacity: 25%;
+    height: 350px;
+    margin-bottom: 30rpx;
+    width: 100%;
+    border-radius: 5px;
+    z-index: 1;
+  }

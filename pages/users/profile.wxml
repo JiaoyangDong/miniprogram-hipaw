@@ -1,10 +1,19 @@
 <!--pages/users/profile.wxml-->
-<text>pages/users/profile.wxml</text>
-
-<!-- if logged in  -->
-<view wx:if="{{!pets}}">no pets</view>
-<view style="background-color: lightblue;">
-  <view class="card" wx:for="{{pets}}">
-    test{{item.name}}
-  </view>
+<view class="user-box">
 </view>
+<!-- if logged in  -->
+<!-- <block wx:if="{{!pets}}">
+  <view>no pets</view>
+</block> -->
+
+<!-- <block wx:else="{{pets}}"> -->
+  <scroll-view wx:for="{{pets}}" wx:for-item="pet" bindtap="goToPet" data-id="{{pet.id}}" class="my-pet-cards-box">
+    <view class="filter"></view>
+    <image class="pet-image" style="width: 100%;" src="{{pet.image_url}}" mode="widthFix"></image>
+    <view class="pet-info">
+      <view class="pet-name">{{pet.name}}</view>
+      <view class="pet-sex"><image class="pet-sex-icon" src="{{ pet.sex == 'male' ? '/images/boy.png' : '/images/girl.png'}}"></image></view>
+    </view>
+    <view class="pet-location">📍 {{pet.district}}</view>
+  </scroll-view>
+<!-- </block> -->

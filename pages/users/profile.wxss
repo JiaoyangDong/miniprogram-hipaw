@@ -1,1 +1,33 @@
 /* pages/users/profile.wxss */
+
+.user-box {
+  background-color: red;
+}
+
+.my-pets-cards-box{
+  white-space: nowrap;
+  height: 45rpx;
+}
+
+.my-pet-card {
+  height: 90%;
+  position: fixed;
+  position: relative;
+  /* width: 100%;  */
+  margin: 20rpx  0;
+  border-radius: 5px;
+}
+
+.filter {
+  position: absolute;
+  background-color: black;
+  opacity: 25%;
+  width: 100%;
+  height: calc(100% - 5px);
+  border-radius: 5px;
+}
+
+.pet-sex-icon {
+  width: 35rpx;
+  height: 35rpx;
+}
