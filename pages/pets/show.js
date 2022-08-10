@@ -6,16 +6,17 @@ Page({
    * Page initial data
    */
   data: {
-
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-    console.log("show onLoad", options)
+    // console.log("show onLoad", options)
     const id = options.id
+    console.log(id)
     const page = this
+    console.log(page)
     wx.request({
       url: `${app.globalData.baseURL}/${id}`,
       success(res) {

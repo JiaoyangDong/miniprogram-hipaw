@@ -3,9 +3,23 @@
 .main {
   padding: 40rpx;
 }
+.favorite-icon {
+  display: flex;
+  position: fixed;
+  margin-left: 600rpx;
+}
+
+.icon {
+  height: 50rpx;
+  width: 50rpx;
+}
 
 .fixed-bottom {
   position: fixed;
   bottom: 50rpx; left:20rpx; right:20rpx;
   display: flex;
 }
+
+.main image {
+  margin: auto 8px;
+  }

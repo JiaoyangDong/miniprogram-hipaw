@@ -87,8 +87,11 @@ Page({
 
   },
   goToPet(e) {
+    console.log('goToPet', e)
+    const id = e.currentTarget.dataset.id
+    console.log(id)
     wx.navigateTo({
-        url: `/pages/pets/show?index=${e.currentTarget.dataset.id}`,
-      })
+        url: `/pages/pets/show?id=${id}`,
+    })
   }
 })

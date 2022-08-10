@@ -1,11 +1,11 @@
 {
   "pages":[
-    "pages/index/index",
     "pages/landing/landing",
     "pages/pets/index",
     "pages/pets/form",
     "pages/users/profile", 
-    "pages/pets/show"
+    "pages/pets/show",
+    "pages/index/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

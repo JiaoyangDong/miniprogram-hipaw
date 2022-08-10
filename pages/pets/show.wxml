@@ -1,13 +1,21 @@
 <!--pages/pets/show.wxml-->
-<text>pages/pets/show.wxml</text>
 
 <view class="main">
+  <text>Pet Show</text>
+  <view class="favorite-icon">
+    <!-- <image class="icon" src="/images/aixin.png"></image> -->
+    <image class="icon" src="/images/aixin-2.png"></image>
+  </view>
   <image src="{{pet.image_url}}"></image>
   <view>{{pet.name}}</view>
   <view>{{pet.age}}</view>
   <view>{{pet.description}}</view>
   <view>{{pet.fur_type}}</view>
   <view>{{pet.district}}</view>
+  
+  <view class="fixed">
+    <button>Meet & Greet</button>
+  </view>
 
   <view class="fixed-bottom">
     <!-- bindtap="edit" -->
