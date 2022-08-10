@@ -37,10 +37,7 @@ Page({
   },
 
   getData() {
-    const page = this;
     wx.request({})
-  },
-
   },
 
   /**
