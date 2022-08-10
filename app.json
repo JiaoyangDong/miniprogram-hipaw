@@ -4,12 +4,7 @@
     "pages/pets/index",
     "pages/pets/show",
     "pages/pets/form",
-<<<<<<< HEAD
-    "pages/users/profile", 
-    "pages/pets/show",
-=======
     "pages/users/profile",
->>>>>>> afaa8a1ad07ddda6e5cdbdf499901b4d4eaffbc7
     "pages/index/index"
   ],
   "window":{
