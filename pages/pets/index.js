@@ -7,7 +7,8 @@ Page({
    * Page initial data
    */
   data: {
-    pets: []
+    pets: [],
+    sex: ''
   },
 
   /**
@@ -28,7 +29,14 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow() {
+    // this.resizeAllGridItems();
+    // this.addEventListener("resize", resizeAllGridItems);
+    // let allItems = document.getElementsByClassName("pet-card");
+    // for(x=0;x<allItems.length;x++){
+    //   imagesLoaded( allItems[x], resizeInstance);
+    // }
     const page = this
+    console.log('header', app.globalData.header)
     wx.request({
       url: `${app.globalData.baseURL}/pets`,
       method: "GET",
@@ -38,16 +46,6 @@ Page({
         page.setData({
           pets: res.data
         })
-      }
-    })
-    page.data.pets.forEach((pet) => {
-      let sex = pet.sex
-      if(sex === "male"){
-        document.querySelector('.pet-sex-icon').src = '/images/boy.png';
-      }else if(sex === "female"){
-        document.querySelector('.pet-sex-icon').src = '/images/boy.png';
-      } else {
-        document.querySelector('.pet-sex-icon').src = '';
       }
     })
   },
@@ -91,7 +89,27 @@ Page({
     const id = e.currentTarget.dataset.id
     console.log(id)
     wx.navigateTo({
-        url: `/pages/pets/show?id=${id}`,
-    })
-  }
+        url: `/pages/pets/show?id=${e.currentTarget.dataset.id}`,
+      })
+  },
+
+  // resizeGridItem(item) {
+  //   grid = document.getElementsByClassName("cards-box")[0];
+  //   rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+  //   rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+  //   rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
+  //     item.style.gridRowEnd = "span "+rowSpan;
+  // },
+  
+  // resizeAllGridItems() {
+  //   allItems = document.getElementsByClassName("pet-card");
+  //   for(x=0;x<allItems.length;x++){
+  //     resizeGridItem(allItems[x]);
+  //   }
+  // },
+  
+  // resizeInstance(instance) {
+  //   item = instance.elements[0];
+  //   resizeGridItem(item);
+  // }
 })

@@ -11,52 +11,20 @@ Page({
   /**
    * Lifecycle function--Called when page load
    */
-  onLoad(options) {
-    // console.log("show onLoad", options)
+  onLoad: function (options) {
+    console.log('inside pets/show, options: ', options)
     const id = options.id
-    console.log(id)
     const page = this
-    console.log(page)
     wx.request({
-      url: `${app.globalData.baseURL}/${id}`,
+      header: app.globalData.header,
+      url: `${app.globalData.baseURL}/pets/${id}`,
       success(res) {
         console.log({res})
-        page.setData({
-          pet: res.data
-        })
+  
+        page.setData({pet: res.data});
       }
     })
   },
-  // edit(e) {
-  //   wx.setStorageSync('editedId', this.data.pet.id)
-  //   wx.switchTab({
-  //     url: `/pages/pets/form`,
-  //   })
-  // },
-
-  // delete(e) {
-  //   const id = this.data.pet.id
-  //   wx.showModal({
-  //     title: 'Are you sure?',
-  //     content: "Delete this pet?",
-  //     success(res) {
-  //       if (res.confirm) {
-  //         wx.request({
-  //           url: `${app.globalData.baseURL}/${id}`,
-  //           method: 'DELETE',
-  //           success(res) {
-  //             wx.switchTab({
-  //               url: '/pages/pets/index',
-  //             })
-  //           }
-  //         })
-          
-  //       } else {
-  //         // do nothing
-  //       }
-  //     }
-  //   })
-  // },
 
   /**
    * Lifecycle function--Called when page is initially rendered
@@ -69,7 +37,18 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow() {
+    // if (app.globalData.header) {
+      // proceed to fetch api
+      // this.getData()
+    // } else {
+      // wait until loginFinished, then fetch API
+    //   wx.event.on('loginFinished', this, this.getData)
+    // }
+    
+  },
 
+  getData() {
+    wx.request({})
   },
 
   /**
