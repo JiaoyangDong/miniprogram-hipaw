@@ -1,13 +1,13 @@
 <!--pages/users/profile.wxml-->
 <view class="user-box">
+User ID: {{user_id}}
 </view>
 <!-- if logged in  -->
 <!-- <block wx:if="{{!pets}}">
   <view>no pets</view>
 </block> -->
-
 <!-- <block wx:else="{{pets}}"> -->
-  <scroll-view wx:for="{{pets}}" wx:for-item="pet" bindtap="goToPet" data-id="{{pet.id}}" class="my-pet-cards-box">
+  <scroll-view scroll-x="true" wx:for="{{pets}}" wx:for-item="pet" bindtap="goToPet" data-id="{{pet.id}}" class="my-pet-cards-box">
     <view class="filter"></view>
     <image class="pet-image" style="width: 100%;" src="{{pet.image_url}}" mode="widthFix"></image>
     <view class="pet-info">
