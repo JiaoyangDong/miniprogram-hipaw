@@ -17,3 +17,27 @@
 .usermotto {
   margin-top: 200px;
 }
+
+/* theme color background buttons */
+.weui-btn-blue {
+  margin: 60rpx;
+  background-color:#1D4E89;
+  color: white;
+}
+
+.weui-btn-green {
+  margin: 60rpx;
+  background-color:#7DCFB6;
+  color: black;
+}
+
+.weui-btn-orange {
+  margin: 60rpx;
+  background-color:#F79256;
+  color: black;
+}
+
+/* white buttons */
+.weui-btn {
+  margin: 60rpx;
+}
