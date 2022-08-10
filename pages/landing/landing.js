@@ -1,5 +1,6 @@
 // pages/landing/landing.js
 const DEFAULT_PAGE = 0;
+const app = getApp()
 Page({
 
   /**
@@ -55,10 +56,23 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow() {
-    let page = this
+    // let page = this
+    if (app.globalData.header) {
+      // proceed to fetch api
+      this.getData()
+    } else {
+      // wait until loginFinished, then fetch API
+      wx.event.on('loginFinished', this, this.getData)
+    }
+    
+  },
+
+  getData() {
+    const page = this;
     wx.request({
-      url: 'https://hipaw-api.herokuapp.com/api/v1/pets',
+      url: `${app.globalData.baseURL}/pets`,
       method: 'GET',
+      header: app.globalData.header,
       success(res) {
         console.log({res})
         const pets = res.data
