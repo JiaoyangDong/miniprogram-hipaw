@@ -1,4 +1,5 @@
 // pages/pets/show.js
+const app = getApp()
 Page({
 
   /**
@@ -11,8 +12,19 @@ Page({
   /**
    * Lifecycle function--Called when page load
    */
-  onLoad(options) {
-
+  onLoad: function (options) {
+    console.log('inside pets/show, options: ', options)
+    const id = options.id
+    const page = this
+    wx.request({
+      header: app.globalData.header,
+      url: `${app.globalData.baseURL}/pets/${id}`,
+      success(res) {
+        console.log({res})
+  
+        page.setData({pet: res.data});
+      }
+    })
   },
 
   /**
@@ -26,13 +38,13 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow() {
-    if (app.globalData.header) {
+    // if (app.globalData.header) {
       // proceed to fetch api
-      this.getData()
-    } else {
+      // this.getData()
+    // } else {
       // wait until loginFinished, then fetch API
-      wx.event.on('loginFinished', this, this.getData)
-    }
+    //   wx.event.on('loginFinished', this, this.getData)
+    // }
     
   },
 

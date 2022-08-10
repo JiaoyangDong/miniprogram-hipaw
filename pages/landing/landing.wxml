@@ -1,13 +1,14 @@
 <!--pages/landing/landing.wxml-->
 <view class="pageContainer">
-
-  <view class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1415369629372-26f2fe60c467?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80);">
-    <view class="banner-description">
-      <view class="h1">Adoption Day</view>
-      <view class="h2">Aug 13</view>
-      <button class="btn-white" href="#">see events</button>
+  <view class="header">
+    <view class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1415369629372-26f2fe60c467?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80);">
+      <view class="banner-description">
+        <view class="h1">Adoption Day</view>
+        <view class="h2">Aug 13</view>
+        <button class="btn-white" href="#">see events</button>
+      </view>
     </view>
-</view>
+  </view>
 
   <view class="card-title">
     <text class="h1">fluffy friends waiting for adoption</text>
@@ -17,15 +18,11 @@
     <text class="h1">⇦ ⇨</text>
   </view>
 
-    <!-- <view wx:for="{{pets}}" wx:for-item="pet" data-index="{{pet.id}}" class="card-product">
-      <text class="h2">{{pet.name}}</text>
-    </view>   -->
-
   <scroll-view class="scroll-box" scroll-x scroll-with-animation
     scroll-into-view="{{toView}}"
     bindtouchstart="touchStart"
     bindtouchend="touchEnd">
-      <view wx:for="{{pets}}" wx:for-item="pet" class="card-box" data-index="{{pet.id}}">
+      <view wx:for="{{pets}}" wx:for-item="pet" class="card-box" data-id="{{pet.id}}" bindtap="goToPet">
         <view class="card">
           <image class="card-image" mode="aspectFill" src="{{pet.image_url}}"></image>
           <view class="pet-description"><text class="h1">{{pet.name}}</text></view>
@@ -35,5 +32,8 @@
       </view>
   </scroll-view>
 
-  <button class="weui-btn-blue">more pets</button>
+  <navigator open-type="switchTab" url="/pages/pets/index">
+    <button class="weui-btn-blue">more pets</button>
+  </navigator>
+  
 </view>
