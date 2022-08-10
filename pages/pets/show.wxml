@@ -1,2 +1,13 @@
 <!--pages/pets/show.wxml-->
-<text>pages/pets/show.wxml</text>
+<!-- <text>pages/pets/show.wxml</text> -->
+<view class="header">
+  <view class="h1">
+    <text>{{pet.name}}</text>
+  </view>
+</view>
+<view class="card-title"><view>About</view></view>
+<view class="main">
+  <view class="h2">
+    <text>{{pet.description}}</text>
+  </view>
+</view>

@@ -1,34 +1,68 @@
 .cards-box {
   columns: 2;
   padding: 20rpx;
+  /* display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+  grid-auto-rows: 20px; */
 }
 
-.pet-image-background {
-  /* background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)); */
-}
 
 .pet-card {
-  border-radius: 5px;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   width: 100%; 
   margin: 20rpx 0;
-  box-shadow: 0 0 15rpx rgba(0,0,0,0.5);
+  border-radius: 5px;
 }
 
+.pet-image {
+  border-radius: 5px;
+  box-shadow: 0 0 15rpx rgba(0,0,0,0.5);
+}
 .pet-info {
   position: absolute;
   color: white;
   font-weight: bold;
-  bottom: 10rpx;
-  left: 15rpx;
+  top: 15rpx;
+  left: 20rpx;
+  /* display: flex; */
 }
 
-.pet-sex-icon {
+.pet-sex {
+  position: absolute;
+  top: 50rpx;
+}
+
+.pet-location {
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  bottom: 20rpx;
+  right: 20rpx;
+}
+
+.favorite-icon {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
   width: 40rpx;
   height: 40rpx;
 }
 
+.pet-sex-icon {
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.filter {
+  position: absolute;
+  background-color: black;
+  opacity: 25%;
+  width: 100%;
+  height: calc(100% - 5px);
+  border-radius: 5px;
+}
 
 .filter-banner {
   background-color: #FBD1A2;

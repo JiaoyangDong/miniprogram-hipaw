@@ -1,5 +1,5 @@
 <!--pages/pets/index.wxml-->
-<view class="filter-banner">filter stuff goes here</view>
+<!-- <view class="filter-banner">filter stuff goes here</view> -->
 <view class="cards-box">
   <block wx:if="{{!pets.length}}">
     <view class="no-pets-message">Oops, there aren't any pets listed yet!</view>
@@ -7,12 +7,14 @@
   <block wx:else>
     <!-- <view wx:for="{{pets}}" wx:for-item="pet" bindtap="goToPet" data-id="{{pet.id}}"> -->
       <view wx:for="{{pets}}" wx:for-item="pet" bindtap="goToPet" data-id="{{pet.id}}" class="pet-card">
-        <image style="width: 100%;" src="{{pet.image_url}}" mode="widthFix"></image>
+        <view class="filter"></view>
+        <image class="pet-image" style="width: 100%;" src="{{pet.image_url}}" mode="widthFix"></image>
+        <view><image class="favorite-icon" src="/images/heart-empty.png"></image></view>
         <view class="pet-info">
           <view class="pet-name">{{pet.name}}</view>
-          <view class="pet-sex"><image class="pet-sex-icon" src="/images/boy.png"></image></view>
-          <view class="pet-location">📍 {{pet.district}}</view>
+          <view class="pet-sex"><image class="pet-sex-icon" src="{{ pet.sex == 'male' ? '/images/boy.png' : '/images/girl.png'}}"></image></view>
         </view>
+        <view class="pet-location">📍 {{pet.district}}</view>
       </view>
     <!-- </view> -->
   </block>  
