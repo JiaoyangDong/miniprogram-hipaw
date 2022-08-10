@@ -5,7 +5,8 @@
     <!-- <image class="icon" src="/images/aixin.png"></image> -->
     <image class="icon" src="/images/aixin-2.png"></image>
   </view>
-    
+  
+  <view class="filter"></view>
   <image class="pet-avt" mode="aspectFill" src="{{pet.image_url}}"></image>
 
   <view class="pet-info">
