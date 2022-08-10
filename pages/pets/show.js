@@ -26,7 +26,18 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow() {
+    if (app.globalData.header) {
+      // proceed to fetch api
+      this.getData()
+    } else {
+      // wait until loginFinished, then fetch API
+      wx.event.on('loginFinished', this, this.getData)
+    }
+    
+  },
 
+  getData() {
+    wx.request({})
   },
 
   /**
