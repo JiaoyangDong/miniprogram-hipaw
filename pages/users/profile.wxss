@@ -1,7 +1,7 @@
 /* pages/users/profile.wxss */
 
 .user-box {
-  background-color: red;
+  margin: 0 auto;
 }
 
 .my-pets-cards-box{

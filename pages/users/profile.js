@@ -38,7 +38,8 @@ Page({
         console.log("Frome profile.js: res",res)
         if (res.statusCode === 200) {
           page.setData({
-            pets: res.data.pets
+            pets: res.data.pets,
+            user_id: user_id
           })
         } else {
           console.log("From profile.js: status code is", res.statusCode)
