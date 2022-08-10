@@ -1,13 +1,18 @@
 
-.container{
+.main {
   background: #00B2CA;
+  display: flex;
+  justify-content: center;
+  padding: 15px ;
 }
-form {
-  background:#7DCFB6;
-  padding: 80rpx;
+
+.form-box {
+  background: white;
   color: #1D4E89;
   border-radius: 8px;
   font-size: 12pt;
+  width: 250px;
+  padding: 20px 30px;
 }
 .form-item {
   margin-bottom: 20rpx;
@@ -20,3 +25,7 @@ input {
   border-radius: 5px;
   padding: 10rpx;
 } 
+
+.btn-area {
+  display: flex;
+}

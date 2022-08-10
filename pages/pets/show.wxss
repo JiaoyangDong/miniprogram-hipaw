@@ -1,1 +1,42 @@
 /* pages/pets/show.wxss */
+
+.main {
+  align-items: center;
+}
+.favorite-icon {
+  display: flex;
+  position: fixed;
+  margin-left: 620rpx;
+  margin-top: 50rpx;
+}
+
+.pet-avt {
+  height: 350px;
+  margin-bottom: 30rpx;
+  width: 100%;
+}
+
+.icon {
+  height: 60rpx;
+  width: 60rpx;
+}
+
+.fixed-bottom {
+  position: fixed;
+  bottom: 50rpx; left:20rpx; right:20rpx;
+  display: flex;
+}
+ .pet-info {
+  margin-left: 70rpx
+ }
+
+ .h1 {
+   font-size: 16pt;
+  }
+
+  .og-button {
+    background-color:#F79256;
+    color: black;
+    margin-bottom: 50rpx;
+  }
+  

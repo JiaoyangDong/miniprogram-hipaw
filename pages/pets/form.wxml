@@ -1,45 +1,47 @@
 <!--pages/pets/form.wxml-->
 
-<view class="container">
-  <form bindsubmit="save">
-    <view class="form-item">Pet name
-      <input name="name" value="{{formData.name}}"/>
-        </view>
-    <view class="form-item">age
-      <input name="age" value="{{formData.age}}"/>
-        </view>
-    <view class="form-item">district
-      <input name="district" value="{{formData.district}}"/>
-        </view>
-      <view class="form-item">species
-        <radio-group name="species">
-          <label><radio color="#00B2CA" value="dog"/>dog</label>
-          <label><radio color="#00B2CA" value="cat"/>cat</label>
-          <label><radio color="#00B2CA" value="other"/>other</label>
-        </radio-group>
-        </view>
-    <view class="form-item">description
-      <input type="text" name="description" value="{{formData.description}}"/>  
-        </view>
-    <view  class="form-item">gender
-        <radio-group name="sex">
-          <label><radio color="#00B2CA" value="female"/>female</label>
-          <label><radio color="#00B2CA" value="male"/>male</label>
-        </radio-group>
-        </view>
-    <view class="form-item">fur type
-        <radio-group name="fur_type">
-          <label><radio color="#00B2CA" value="long"/>long</label>
-          <label><radio color="#00B2CA" value="short"/>short</label>
-        </radio-group>
-        </view>
-    <view class="form-item" style="margin-bottom: 40rpx;">upload photo
-      <input type="url" name="image_url" value="{{formData.image_url}}"/>  
-        </view>
-    <view class="form-item">
-        <button style="margin: 20rpx; background-color: #00B2CA; color: #1D4E89;" type="default" formType="submit">Post</button>
-        <button style="margin: 20rpx; background-color: #00B2CA; color: #1D4E89;" formType="reset">Reset</button>
-        </view>
-  </form>
+<view class="main">
+  <view class="form-box">
+    <form bindsubmit="save">
+      <view class="form-item">Pet name
+        <input name="name" value="{{formData.name}}"/>
+          </view>
+      <view class="form-item">age
+        <input name="age" value="{{formData.age}}"/>
+          </view>
+      <view class="form-item">district
+        <input name="district" value="{{formData.district}}"/>
+          </view>
+        <view class="form-item">species
+          <radio-group name="species">
+            <label><radio color="#00B2CA" value="dog"/>dog</label>
+            <label><radio color="#00B2CA" value="cat"/>cat</label>
+            <label><radio color="#00B2CA" value="other"/>other</label>
+          </radio-group>
+          </view>
+      <view class="form-item">description
+        <input type="text" name="description" value="{{formData.description}}"/>  
+          </view>
+      <view  class="form-item">gender
+          <radio-group name="sex">
+            <label><radio color="#00B2CA" value="female"/>female</label>
+            <label><radio color="#00B2CA" value="male"/>male</label>
+          </radio-group>
+          </view>
+      <view class="form-item">fur type
+          <radio-group name="fur_type">
+            <label><radio color="#00B2CA" value="long"/>long</label>
+            <label><radio color="#00B2CA" value="short"/>short</label>
+          </radio-group>
+          </view>
+      <view class="form-item" style="margin-bottom: 40rpx;">upload photo
+        <input type="url" name="image_url" value="{{formData.image_url}}"/>  
+          </view>
+      <view class="btn-area">
+          <button style="margin: 20rpx; background-color: #00B2CA; color: #1D4E89;" type="default" formType="submit">Post</button>
+          <button style="margin: 20rpx; background-color: #00B2CA; color: #1D4E89;" formType="reset">Reset</button>
+          </view>
+      </form>
+    </view>
 </view> 
 

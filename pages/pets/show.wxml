@@ -1,13 +1,29 @@
 <!--pages/pets/show.wxml-->
-<!-- <text>pages/pets/show.wxml</text> -->
-<view class="header">
-  <view class="h1">
-    <text>{{pet.name}}</text>
-  </view>
-</view>
-<view class="card-title"><view>About</view></view>
+
 <view class="main">
-  <view class="h2">
-    <text>{{pet.description}}</text>
+  <view class="favorite-icon">
+    <!-- <image class="icon" src="/images/aixin.png"></image> -->
+    <image class="icon" src="/images/aixin-2.png"></image>
+  </view>
+    
+  <image class="pet-avt" mode="aspectFill" src="{{pet.image_url}}"></image>
+
+  <view class="pet-info">
+    <view class="h1">{{pet.name}}</view>
+    <view> 📍 {{pet.district}}</view>
+    <view>{{pet.age}}</view>
+    <view>{{pet.description}}</view>
+    <view>{{pet.fur_type}}</view>
+  </view>
+
+  <view class="container">
+    <button class="og-button">Meet & Greet</button>
+  </view>
+
+  <view class="fixed-bottom">
+    <!-- bindtap="edit" -->
+    <button class="weui-btn-orange">Edit</button>
+    <!-- bindtap="delete" -->
+    <button type="warn">Delete</button>
   </view>
 </view>
