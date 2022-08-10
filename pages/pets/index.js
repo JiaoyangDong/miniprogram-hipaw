@@ -29,6 +29,7 @@ Page({
    */
   onShow() {
     const page = this
+    console.log('header', app.globalData.header)
     wx.request({
       url: `${app.globalData.baseURL}/pets`,
       method: "GET",
@@ -88,7 +89,7 @@ Page({
   },
   goToPet(e) {
     wx.navigateTo({
-        url: `/pages/pets/show?index=${e.currentTarget.dataset.id}`,
+        url: `/pages/pets/show?id=${e.currentTarget.dataset.id}`,
       })
   }
 })
