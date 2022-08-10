@@ -7,6 +7,17 @@ User ID: {{user_id}}
   <view>no pets</view>
 </block> -->
 <!-- <block wx:else="{{pets}}"> -->
+  <view>
+      <swiper> 
+        <block wx:for="{{pets}}" wx:key="*this">
+          <swiper-item style="display: flex; justify-content: center;">
+            <view style="background-color: olivedrab;" class="swiper-item {{item}}">card</view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+
   <scroll-view scroll-x="true" wx:for="{{pets}}" wx:for-item="pet" bindtap="goToPet" data-id="{{pet.id}}" class="my-pet-cards-box">
     <view class="filter"></view>
     <image class="pet-image" style="width: 100%;" src="{{pet.image_url}}" mode="widthFix"></image>

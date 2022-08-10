@@ -1,4 +1,8 @@
 /* pages/users/profile.wxss */
+.swiper-item {
+  height: 200rpx;
+  width: 90%;
+}
 
 .user-box {
   margin: 0 auto;
