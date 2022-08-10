@@ -36,6 +36,7 @@ Page({
     //   imagesLoaded( allItems[x], resizeInstance);
     // }
     const page = this
+    console.log('header', app.globalData.header)
     wx.request({
       url: `${app.globalData.baseURL}/pets`,
       method: "GET",

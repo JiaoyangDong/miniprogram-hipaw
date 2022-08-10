@@ -77,8 +77,8 @@ Page({
         console.log({res})
         const pets = res.data
         page.setData({
-          // pets: pets.slice(0,5)
-          pets: pets
+          pets: pets.slice(0,5)
+          // pets: pets
         })
         console.log(page.data.pets)
       }
@@ -118,15 +118,11 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+
+  goToPet(e) {
+    wx.navigateTo({
+        url: `/pages/pets/show?id=${e.currentTarget.dataset.id}`,
+      })
   }
-
-  // goToPets(e) {
-  //   console.log('function goToPets e', e)
-  //   const pets = this.data.pets[e.currentTarget.dataset.id]
-  //   console.log({pets})
-
-  //   wx.navigateTo({
-  //     url: `/pages/pets/index?id=${e.currentTarget.dataset.id}`,
-  //   })
-  // }
 })
