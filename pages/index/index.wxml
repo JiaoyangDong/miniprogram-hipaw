@@ -20,4 +20,28 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+
+  <!-- theme color buttons -->
+<button class="weui-btn-blue">blue background button</button>
+
+<button class="weui-btn-green">green background button</button>
+
+<button class="weui-btn-orange">orange background button</button>
+
+<!-- white buttons -->
+<button class="weui-btn" style="color:#1D4E89" type="default" plain="true">blue text button</button>
+
+<button class="weui-btn" type="default" plain="true">primary button</button>
+
+<button class="weui-btn" type="default" disabled="true" plain="true">secondary button</button>
+
+<button class="weui-btn" type="warn" plain="true">warn button</button>
+
+<button class="weui-btn mini-btn" type="default" plain="true" size="mini">mini primary button</button>
+
+<button class="weui-btn mini-btn" type="default" disabled="true" plain="true" size="mini">mini secondary button</button>
+
+<button class="weui-btn mini-btn" type="warn" plain="true" size="mini">mini warn button</button>
+
+<button class="btn-white">white button</button>
 </view>

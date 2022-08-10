@@ -63,7 +63,8 @@ Page({
         console.log({res})
         const pets = res.data
         page.setData({
-          pets: pets.slice(0,5)
+          // pets: pets.slice(0,5)
+          pets: pets
         })
         console.log(page.data.pets)
       }
