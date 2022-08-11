@@ -46,7 +46,7 @@
   margin-bottom: 20rpx;
   margin-left: 20rpx;
   margin-right: 20rpx;
-  display: flex;
+  /* display: flex; */
 }
  .pet-info {
   margin-left: 40rpx
@@ -56,16 +56,29 @@
    font-size: 16pt;
   }
 
-  .og-button {
-    background-color:#F79256;
-    color: black;
+  .edit-card {
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  .meet-btn {
+    /* background-color:#F79256; */
+    background-color: #00B5A3;
+    color: white;
     margin-bottom: 50rpx;
   }
   .edit-btn {
+    color: white;
+    background-color: #404040;
     margin-bottom: 15rpx;
   }
-  
+  .btn-space {
+    width: 20rpx;
+  }
   .delete-btn {
+    color: #404040;
+    background-color: white;
+    border: 1px solid #404040;
     margin-bottom: 15rpx;
   }
 

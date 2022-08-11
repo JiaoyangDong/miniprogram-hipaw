@@ -9,7 +9,6 @@ Page({
   data: {
     loadingHidden: false,
   },
-
   /**
    * Lifecycle function--Called when page load
    */

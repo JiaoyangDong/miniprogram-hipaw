@@ -16,14 +16,17 @@
     <view>Fur type: {{pet.fur_type}}</view>
   </view>
 
-  <view class="container">
-    <button class="og-button">Meet & Greet</button>
-  </view>
-
   <view class="sticky-bottom">
-    <button bindtap="edit" class="edit-btn" type="default" plain="true">edit</button>
-   
-    <button bindtap="delete" class="delete-btn" type="warn" plain="true">delete</button>
+    <view class="meet-card">
+    <!-- <view class="meet-card" wx:if="{{isAdopter}}"> -->
+      <button class="meet-btn">Meet & Greet</button>
+    </view>
+    <view class="edit-card">
+    <!-- <view class="edit-card" wx:else> -->
+      <button bindtap="edit" class="edit-btn">edit</button>
+      <view class="btn-space"></view>
+      <button bindtap="delete" class="delete-btn">delete</button>
+    </view>
   </view>
 
 </view>
