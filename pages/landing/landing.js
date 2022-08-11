@@ -1,3 +1,5 @@
+const animation = require("../../utils/tools/animation");
+
 // pages/landing/landing.js
 const DEFAULT_PAGE = 0;
 const app = getApp()
@@ -7,7 +9,8 @@ Page({
    * Page initial data
    */
   data: {
-    loadingHidden: false,
+    
+    loadingHidden: false
   },
   /**
    * Lifecycle function--Called when page load
@@ -15,6 +18,7 @@ Page({
   onLoad(options) {
   
   },
+  
   startPageX: 0,
   currentView: DEFAULT_PAGE,
   data: {
@@ -49,13 +53,24 @@ Page({
     this.setData({
       loadingHidden: true,
     })
+    // this.animation = wx.createAnimation({
+    //   duration: 1000
+    // })
+
   },
+  // translate: function () {
+  //   this.animation.translate(250, -1).step()
+  //   this.setData({animation: this.animation.export()})
+  // },
 
   /**
    * Lifecycle function--Called when page show
    */
   onShow() {
     // let page = this
+    // this.animation = wx.createAnimation({
+    //   duration: 1000
+    // })
     if (app.globalData.header) {
       // proceed to fetch api
       this.getData()
