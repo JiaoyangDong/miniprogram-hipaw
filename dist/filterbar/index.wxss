@@ -22,11 +22,11 @@
   display: flex;
   position: relative;
   background-color: #fafafa;
-  padding: 22rpx 0;
+  padding: 20rpx 0;
   font-size: 28rpx;
   height: 100rpx;
   line-height: 48rpx;
-  text-align: center;
+  text-align: right;
   box-sizing: border-box
 }
 .wux-filterbar__bd::after {
@@ -68,7 +68,7 @@
   transform: scaleX(.5) translateY(50%)
 }
 .wux-filterbar__item--checked {
-  color: #f15353
+  color: #00B5A3;
 }
 .wux-filterbar__item--checked .wux-filterbar__icon--checkbox,
 .wux-filterbar__item--checked .wux-filterbar__icon--radio {
@@ -182,7 +182,7 @@
 .wux-filterbar__panel-hd {
   padding-top: 40rpx;
   padding-bottom: 4rpx;
-  color: #252525;
+  color: #404040;
   font-size: 30rpx;
   overflow-x: hidden;
   display: -ms-flexbox;
@@ -201,7 +201,7 @@
   text-align: right;
   font-size: 26rpx;
   padding-left: 60rpx;
-  color: #f15353
+  color: #00B5A3
 }
 .wux-filterbar__groups {
   overflow: hidden;
@@ -217,7 +217,7 @@
   position: relative;
   height: 64rpx;
   width: 33.3333%;
-  color: #232326;
+  color: #404040;
   margin-top: 20rpx;
   float: left;
   box-sizing: border-box;
@@ -236,9 +236,9 @@
   display: block;
   text-align: center;
   line-height: 64rpx;
-  background-color: #f0f2f5;
+  background-color: #00B5A3;
   border-radius: 8rpx;
-  border: 2rpx solid #f0f2f5;
+  border: 2rpx solid #00B5A3;
   box-sizing: border-box
 }
 .wux-filterbar__check,
@@ -248,12 +248,12 @@
   top: 0;
   width: 100%;
   width: calc(100% - 20rpx);
-  opacity: 0
+  opacity: 0;
 }
 .wux-filterbar__btn--checked {
-  border-color: #fdf0f0;
-  background-color: #fdf0f0;
-  color: #f15353
+  border-color: #00B5A3;
+  background-color: #ffffff;
+  color: #00B5A3
 }
 .wux-filterbar__btn--checked::after {
   content: "";
@@ -268,14 +268,15 @@
   z-index: 1
 }
 .wux-filterbar__btns {
-  height: auto;
+  height: 24rpx;
   min-height: 44px;
   display: -webkit-box;
-  overflow: hidden
+  overflow: hidden;
+  /* margin: 0 20rpx; */
 }
 .wux-filterbar__btns .wux-filterbar__btn {
   background-color: #fff;
-  color: #252525;
+  color: #00B5A3;
   font-size: 16px;
   position: relative;
   display: -webkit-box;
@@ -296,12 +297,12 @@
   right: 0;
   height: 1PX;
   border-top: 1PX solid #d9d9d9;
-  color: #d9d9d9;
+  color: #E4E4E4;
   transform-origin: 0 0;
   transform: scaleY(.5)
 }
 .wux-filterbar__btns .wux-filterbar__btn--danger {
-  background-color: #f23030;
+  background-color: #00B5A3;
   color: #fff
 }
 .wux-filterbar__btns .wux-filterbar__btn--danger::before {
