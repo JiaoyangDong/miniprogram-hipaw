@@ -21,6 +21,8 @@
       bind:change="onChange"
       bind:open="onOpen"
       bind:close="onClose"
+      confirmText="Confirm"
+      cancelText="Cancel"
     />
 
 <view class="cards-box">
