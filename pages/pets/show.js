@@ -6,34 +6,58 @@ Page({
    * Page initial data
    */
   data: {
+    date: "",
+    showBookingModal: false
   },
 
   /**
    * Lifecycle function--Called when page load
    */
-  onLoad: function (options) {
-    console.log('inside pets/show, options: ', options)
+  onLoad(options) {
+    console.log('From show.jz - onload: options ', options)
     let id = options.id
     let page = this
     wx.request({
       header: app.globalData.header,
       url: `${app.globalData.baseURL}/pets/${id}`,
       success(res) {
-        console.log({res})
-        // const pet = res.pet;
-        const pet = res.data;
-        page.setData({pet: pet});
+        console.log("From show.js - onload: res",res)
+        if (res.statusCode === 200) {
+          const pet = res.data;
+          const date = new Date()
+          page.setData({
+            pet: pet,
+            date: date.toISOString().split('T')[0]
+          });
+          console.log("test date: ", this.date)
+        } else {
+          console.log("From show.js: status code is", res.statusCode)
+        }
       }
     })
   },
 
-  edit(e) {
+  showBookingWindow(e) {
+    console.log("From show.js - booking: e ", e)
+    this.setData({
+      showBookingModal: true
+    })
 
+  },
+  removeBookingWindow(){
+    console.log("From show.js: removeBookingWindow")
+    this.setData({
+      showBookingModal: false
+    })
+  },
+
+  edit(e) {
     wx.switchTab({
       header: app.globalData.header,
       url: `/pages/pets/form`,
     })
   },
+
   delete(e) {
     let id = this.data.pet.id
     wx.showModal({

@@ -1,5 +1,4 @@
 <!--pages/pets/show.wxml-->
-
 <view class="main">
   <view class="picture">
     <view class="favorite-icon">
@@ -17,7 +16,7 @@
   </view>
 
   <view class="container">
-    <button class="og-button">Meet & Greet</button>
+    <button class="og-button" bindtap="showBookingWindow">Meet & Greet</button>
   </view>
 
   <view class="sticky-bottom">
@@ -27,3 +26,10 @@
   </view>
 
 </view>
+
+<booking 
+  wx:if="{{showBookingModal}}" 
+  bind:goback="removeBookingWindow" 
+  text="Choose a time to meet with {{pet.name}}"/>
+
+<view style="height: 100vh; width:10vw; background-color: red; position: fixed;">hello</view>

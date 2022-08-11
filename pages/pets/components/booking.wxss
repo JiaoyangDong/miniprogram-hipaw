@@ -1,0 +1,22 @@
+/* pages/pets/components/booking.wxss */
+.background {
+  background-color: rgba(0, 0, 0, 0.4); width:100vw; height: 100vh; position: fixed; top: 0; z-index: 90;
+}
+
+.pop-up-window{
+  z-index: 99; 
+  position:fixed; 
+  width:80vw; 
+  height:60vh; 
+  top:10%; left: 10%;
+  /* text-align:center; */
+  background-color: white ; 
+  border-radius: 10rpx;
+  box-shadow: 2rpx, 2rpx, 5rpx, grey; 
+  overflow: hidden;
+}
+.header{
+  font-size: 40rpx;
+  padding: 24rpx 20rpx;
+  text-align: center;
+}
