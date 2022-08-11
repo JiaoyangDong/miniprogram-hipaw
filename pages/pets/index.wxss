@@ -49,6 +49,10 @@
   border-radius: 5px;
 }
 
+.cards-box .pet-card:nth-child(1) {
+  margin-top: 6rpx;
+}
+
 .pet-image {
   border-radius: 5px;
   box-shadow: 0 0 15rpx rgba(0,0,0,0.5);

@@ -29,239 +29,131 @@ Page({
     ],
     items: [
       {
-        type: 'radio',
-        label: 'All pets',
-        value: 'updated',
-        checked: true,
-        children: [
-          {
-            label: 'All pets',
-            value: 'desc',
-            checked: false, // 默认选中
-          },
-          {
-            label: 'Dogs',
-            value: 'idk',
-          },
-          {
-            label: 'Cats',
-            value: 'idk2',
-          },
-          {
-            label: 'Other',
-            value: 'idk3',
-          },
-        ],
-        groups: ['001'],
-      },
-      {
-        type: 'checkbox',
-        label: 'Location',
-        value: 'updated',
-        checked: false,
-        children: [
-          {
-            label: 'The whole city',
-            value: 'wholecity',
-            checked: false, // 默认选中
-          },
-          {
-            label: 'Dogs',
-            value: 'asc',
-          },
-          {
-            label: 'Cats',
-            value: 'asc',
-          },
-          {
-            label: 'Other',
-            value: 'asc',
-          },
-        ],
-        groups: ['002'],
-      },
-      {
-        type: 'sort',
-        label: 'Stars',
-        value: 'stars',
-        groups: ['003'],
-      },
-      {
         type: 'filter',
-        label: 'Location',
+        label: 'Filter',
         value: 'filter',
         checked: true,
         children: [
+          {
+            type: 'radio',
+            label: 'Pet type',
+            value: 'pettype',
+            children: [
+              {
+                label: 'All',
+                value: 'allpets',
+                checked: true, // 默认选中
+              },
+              {
+                label: 'Dogs',
+                value: 'dogs',
+              },
+              {
+                label: 'Cats',
+                value: 'cats',
+              },
+              {
+                label: 'Other',
+                value: 'other',
+              },
+            ],
+          },
+          {
+            type: 'radio',
+            label: 'Sex',
+            value: 'sex',
+            children: [
+              {
+                label: 'Any',
+                value: 'anysex',
+                checked: true, // 默认选中
+              },
+              {
+                label: 'Female',
+                value: 'female',
+              },
+              {
+                label: 'Male',
+                value: 'male',
+              },
+            ],
+          },
           {
             type: 'checkbox',
             label: 'District',
             value: 'district',
             children: [
               {
-                label: 'Angular',
-                value: 'angular',
-              },
-              {
-                label: 'Vue',
-                value: 'vue',
-              },
-              {
-                label: 'React',
-                value: 'react',
+                label: 'All',
+                value: 'all',
                 checked: true, // 默认选中
               },
               {
-                label: 'Avalon',
-                value: 'avalon',
+                label: 'Huangpu',
+                value: 'huangpu',
+              },
+              {
+                label: 'Xuhui',
+                value: 'xuhui',
+              },
+              {
+                label: 'Changning',
+                value: 'changning',
+              },
+              {
+                label: "Jing'an",
+                value: 'jingan',
+              },
+              {
+                label: 'Putuo',
+                value: 'putuo',
+              },
+              {
+                label: 'Hongkou',
+                value: 'hongkou',
+              },
+              {
+                label: 'Yangpu',
+                value: 'yangpu',
+              },
+              {
+                label: 'Baoshan',
+                value: 'baoshan',
+              },
+              {
+                label: 'Minhang',
+                value: 'minhang',
+              },
+              {
+                label: 'Jiading',
+                value: 'jiading',
+              },
+              {
+                label: 'Pudong',
+                value: 'pudong',
+              },
+              {
+                label: 'Songjiang',
+                value: 'songjiang',
+              },
+              {
+                label: 'Jinshan',
+                value: 'jinshan',
+              },
+              {
+                label: 'Qingpu',
+                value: 'qingpu',
+              },
+              {
+                label: 'Fengxian',
+                value: 'fengxian',
+              },
+              {
+                label: 'Chongming',
+                value: 'chongming',
               },
             ],
-          },
-          {
-            type: 'checkbox',
-            label: '配送方式',
-            value: 'away',
-            children: [
-              {
-                label: '京东配送',
-                value: '1',
-              },
-              {
-                label: '货到付款',
-                value: '2',
-              },
-              {
-                label: '仅看有货',
-                value: '3',
-              },
-              {
-                label: '促销',
-                value: '4',
-              },
-              {
-                label: '全球购',
-                value: '5',
-              },
-              {
-                label: 'PLUS专享价',
-                value: '6',
-              },
-              {
-                label: '新品',
-                value: '7',
-              },
-              {
-                label: '配送全球',
-                value: '8',
-              },
-            ],
-          },
-          {
-            type: 'radio',
-            label: '性别',
-            value: 'gander',
-            children: [
-              {
-                label: '男',
-                value: '0',
-              },
-              {
-                label: '女',
-                value: '1',
-              },
-              {
-                label: '通用',
-                value: '2',
-              },
-            ],
-          },
-          {
-            type: 'checkbox',
-            label: '闭合方式',
-            value: 'closed_mode',
-            children: [
-              {
-                label: '卡扣',
-                value: '0',
-              },
-              {
-                label: '拉链',
-                value: '1',
-              },
-              {
-                label: '其他',
-                value: '2',
-              },
-            ],
-          },
-          {
-            type: 'checkbox',
-            label: '轮子种类',
-            value: 'wheel_type',
-            children: [
-              {
-                label: '万向轮',
-                value: '0',
-              },
-              {
-                label: '单向轮',
-                value: '1',
-              },
-              {
-                label: '飞机轮',
-                value: '2',
-              },
-              {
-                label: '其他',
-                value: '3',
-              },
-            ],
-          },
-          {
-            type: 'checkbox',
-            label: '箱包硬度',
-            value: 'wheel_type',
-            children: [
-              {
-                label: '硬箱',
-                value: '0',
-              },
-              {
-                label: '软硬结合',
-                value: '1',
-              },
-              {
-                label: '软箱',
-                value: '2',
-              },
-              {
-                label: '其他',
-                value: '3',
-              },
-            ],
-          },
-          {
-            type: 'checkbox',
-            label: '适用场景',
-            value: 'wheel_type',
-            children: [
-              {
-                label: '旅行',
-                value: '0',
-              },
-              {
-                label: '婚庆',
-                value: '1',
-              },
-              {
-                label: '出差',
-                value: '2',
-              },
-              {
-                label: '其他',
-                value: '3',
-              },
-            ],
-          },
+          }
         ],
         groups: ['001', '002', '003'],
       },
@@ -318,8 +210,9 @@ Page({
     onChange(e) {
     const { checkedItems, items, checkedValues } = e.detail
     const params = {}
-
-    console.log(checkedItems, items, checkedValues)
+    console.log("e!!!!")
+    console.log(e)
+    // console.log(checkedItems, items, checkedValues)
 
     checkedItems.forEach((n) => {
       if (n.checked) {
@@ -362,6 +255,7 @@ Page({
     this.getRepos(params)
   },
   getRepos(params = {}) {
+    console.log("params!!", params)
     const language = params.language || 'javascript'
     const query = params.query || 'react'
     const q = `${query}+language:${language}`
