@@ -27,9 +27,37 @@
 
 </view>
 
-<booking 
+<!-- Booking model -->
+<!-- <booking 
   wx:if="{{showBookingModal}}" 
   bind:goback="removeBookingWindow" 
-  text="Choose a time to meet with {{pet.name}}"/>
+  text="Choose a time to meet with {{pet.name}}"/> -->
+<view class="background" 
+  bindtap="{{removeBookingWindow}}" 
+  wx:if="{{showBookingModal}}">
+</view>
+<view class="pop-up-window" 
+  wx:if="{{showBookingModal}}">
+  <view class="header" >{{text}}</view>
+  <!-- pick date -->
+  <picker 
+    mode="date" 
+    value="{{date}}" 
+    start="{{date}}" 
+    end="2030-12-31" 
+    bindchange="bindDateChange">
+    <view class="picker" style="background-color: lightblue;">
+      Date: {{date}}
+    </view>
+  </picker>
+  <!-- pick timne -->
+  <picker mode="time" value="{{time}}" 
+    start="09:01" end="21:01" 
+    bindchange="bindTimeChange" >
+    <view class="picker" style="background-color: lightblue;">
+      Time: {{time}}
+    </view>
+  </picker>
+  <button bindtap="submitBooking">Submit</button>
+</view>
 
-<view style="height: 100vh; width:10vw; background-color: red; position: fixed;">hello</view>

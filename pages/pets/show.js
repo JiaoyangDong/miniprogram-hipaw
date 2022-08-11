@@ -7,7 +7,11 @@ Page({
    */
   data: {
     date: "",
-    showBookingModal: false
+    time: "",
+    showBookingModal: false,
+    booking: { 
+    }
+
   },
 
   /**
@@ -29,7 +33,7 @@ Page({
             pet: pet,
             date: date.toISOString().split('T')[0]
           });
-          console.log("test date: ", this.date)
+          console.log("test date: ", page.data.date)
         } else {
           console.log("From show.js: status code is", res.statusCode)
         }
@@ -50,6 +54,51 @@ Page({
       showBookingModal: false
     })
   },
+  submitBooking(e){
+    console.log("From show.js - submitBooking: e", e)
+    console.log(this.data.date)
+    console.log(this.data.time)
+    const dateAndTime = Date(`${this.data.date} ${this.data.time}`)
+    console.log(dateAndTime)
+    let page = this
+    wx.request({
+      url: `${app.globalData.baseURL}/pets/${this.data.pet.id}/bookings`,
+      header: app.globalData.header,
+      method: "POST",
+      data: {
+        date_and_time: dateAndTime
+      },
+      success(res){
+        console.log("From show.js - submit booking: res",res)
+        if (res.statusCode === 201) {
+          console.log("From show.js - booking submit successfully!")
+          console.log("From show.js : res.data", res.data)
+          const booking = res.data;
+          page.setData({
+            // pet: pet,
+            // date: date.toISOString().split('T')[0]
+          });
+          // console.log("test date: ", page.data.date)
+        } else {
+          console.log("From show.js: status code is", res.statusCode)
+        }
+      }
+    })
+  },
+
+  bindDateChange(e) {
+    console.log('From show.js - bindDateChange: e', e)
+    console.log('From show.js - bindDateChange: picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      date: e.detail.value
+    })
+  },
+  bindTimeChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      time: e.detail.value
+    })
+  },
 
   edit(e) {
     wx.switchTab({
@@ -62,12 +111,12 @@ Page({
     let id = this.data.pet.id
     wx.showModal({
       title: 'Are you sure?',
-      content: 'Delete this pet???',
+      content: 'Are you sure to delete this pet?',
       success(res) {
         if (res.confirm) {
           wx.request({
             header: app.globalData.header,
-            url: `http://localhost:3000/api/v1/pets/${id}`,
+            url: `${app.globalData.baseURL}/pets/${id}`,
             method: 'DELETE',
             success(res){
               wx.switchTab({
