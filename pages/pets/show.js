@@ -9,9 +9,8 @@ Page({
     date: "",
     time: "",
     showBookingModal: false,
-    booking: { 
-    }
-
+    booking: {},
+    isAdopter: true
   },
 
   /**
@@ -31,6 +30,7 @@ Page({
           const date = new Date()
           page.setData({
             pet: pet,
+            isAdopter: app.globalData.id !== pet.user_id,
             date: date.toISOString().split('T')[0]
           });
           console.log("test date: ", page.data.date)
@@ -101,6 +101,7 @@ Page({
   },
 
   edit(e) {
+    wx.setStorageSync('editedId', this.data.pet.id)
     wx.switchTab({
       header: app.globalData.header,
       url: `/pages/pets/form`,
@@ -181,6 +182,10 @@ Page({
    * Called when user click on the top right corner to share
    */
   onShareAppMessage() {
+
+  },
+
+  startEdit: function(){
 
   }
 })

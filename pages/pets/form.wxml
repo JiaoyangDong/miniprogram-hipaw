@@ -30,7 +30,7 @@
           </view>
       <view class="form-item">fur type
           <radio-group name="fur_type">
-            <label><radio color="#00B2CA" value="long"/>long</label>
+            <label><radio color="#00B2CA" value="long" />long</label>
             <label><radio color="#00B2CA" value="short"/>short</label>
           </radio-group>
           </view>

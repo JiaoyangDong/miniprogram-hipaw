@@ -1,5 +1,5 @@
 <!--pages/pets/show.wxml-->
-<view class="main">
+<view class="pageContainer">
   <view class="picture">
     <view class="favorite-icon">
       <image class="icon" src="/images/aixin-2.png"></image>
@@ -15,14 +15,16 @@
     <view>Fur type: {{pet.fur_type}}</view>
   </view>
 
-  <view class="container">
-    <button class="og-button" bindtap="showBookingWindow">Meet & Greet</button>
-  </view>
-
   <view class="sticky-bottom">
-    <button bindtap="edit" class="edit-btn" type="default" plain="true">edit</button>
-   
-    <button bindtap="delete" class="delete-btn" type="warn" plain="true">delete</button>
+    <!-- <view class="meet-card"> -->
+    <view class="meet-card" wx:if="{{isAdopter}}">
+      <button style="width:42vw" class="meet-btn" bindtap="showBookingWindow">Meet & Greet</button>
+    </view>
+    <!-- <view class="edit-card"> -->
+    <view class="edit-card" wx:else>
+      <button style="width:40vw" bindtap="edit" class="edit-btn">edit</button>
+      <button style="width:40vw" bindtap="delete" class="delete-btn">delete</button>
+    </view>
   </view>
 
 </view>

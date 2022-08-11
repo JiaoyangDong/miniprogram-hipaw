@@ -1,23 +1,22 @@
-/* theme color background buttons */
-.weui-btn-blue {
-  margin: 60rpx;
-  background-color:#1D4E89;
+/* primary buttons */
+.pri-btn {
+  /* background-color:#F79256; */
+  background-color: #00B5A3;
   color: white;
+  margin-bottom: 50rpx;
 }
 
-.weui-btn-green {
-  margin: 60rpx;
-  background-color:#7DCFB6;
-  color: black;
+/* secondary buttons */
+.sec-btn {
+  color: white;
+  background-color: #404040;
+  margin-bottom: 15rpx;
 }
 
-.weui-btn-orange {
-  margin: 60rpx;
-  background-color:#F79256;
-  color: black;
-}
-
-/* white buttons */
-.weui-btn {
-  margin: 60rpx;
+/* outline buttons */
+.out-btn {
+  color: #404040;
+  background-color: transparent;
+  border: 1px solid #404040;
+  margin-bottom: 15rpx;
 }
