@@ -7,7 +7,7 @@ Page({
    * Page initial data
    */
   data: {
-    loadingHidden: false,
+    // loadingHidden: false,
   },
   /**
    * Lifecycle function--Called when page load
@@ -46,9 +46,9 @@ Page({
    * Lifecycle function--Called when page is initially rendered
    */
   onReady() {
-    this.setData({
-      loadingHidden: true,
-    })
+    // this.setData({
+    //   loadingHidden: true,
+    // })
   },
 
   /**
