@@ -13,15 +13,47 @@ Page({
    */
   onLoad: function (options) {
     console.log('inside pets/show, options: ', options)
-    const id = options.id
-    const page = this
+    let id = options.id
+    let page = this
     wx.request({
       header: app.globalData.header,
       url: `${app.globalData.baseURL}/pets/${id}`,
       success(res) {
         console.log({res})
-  
-        page.setData({pet: res.data});
+        // const pet = res.pet;
+        const pet = res.data;
+        page.setData({pet: pet});
+      }
+    })
+  },
+
+  edit(e) {
+
+    wx.switchTab({
+      header: app.globalData.header,
+      url: `/pages/pets/form`,
+    })
+  },
+  delete(e) {
+    let id = this.data.pet.id
+    wx.showModal({
+      title: 'Are you sure?',
+      content: 'Delete this pet???',
+      success(res) {
+        if (res.confirm) {
+          wx.request({
+            header: app.globalData.header,
+            url: `http://localhost:3000/api/v1/pets/${id}`,
+            method: 'DELETE',
+            success(res){
+              wx.switchTab({
+                url: '/pages/pets/index',
+              })
+            }
+          })
+
+        } else {
+        }
       }
     })
   },
@@ -37,14 +69,7 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow() {
-    // if (app.globalData.header) {
-      // proceed to fetch api
-      // this.getData()
-    // } else {
-      // wait until loginFinished, then fetch API
-    //   wx.event.on('loginFinished', this, this.getData)
-    // }
-    
+
   },
 
   getData() {

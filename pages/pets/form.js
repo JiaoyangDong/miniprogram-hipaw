@@ -26,9 +26,25 @@ Page({
   /**
    * Lifecycle function--Called when page show
    */
-  onShow() {
-    console.log("onshow")
+  onShow: function () {
+    console.log("form onshow")
     this.resetForm()
+    let page = this
+    let id = wx.getStorageSync('editedId')
+    if (id) {
+      console.log('id found -> update')
+      wx.request({
+        header: app.globalData.header,
+        url: `${app.globalData.baseURL}/pets/${id}`,
+        success(res) {
+          page.setData({
+            formData: res.data,
+            editedId: id
+          })
+          wx.removeStorageSync('editedId')
+        }
+      })
+    }
   },
 
   resetForm() {
@@ -73,32 +89,48 @@ Page({
     console.log(e)
     const pet = e.detail.value
     console.log(pet)
+    // const pets = wx.getStorageSync('pets')
     const page = this
     
-    
-    wx.request({
-      url: `${app.globalData.baseURL}/pets`,
-      method: 'POST',
-      header: app.globalData.header,
-      data: { pet: pet },
-      success(res) {
-        console.log('success', res)
-        if (res.statusCode === 422) {
-          wx.showModal({
-            title: 'Error!',
-            content: res.data.errors.join(', '),
-            showCancel: false,
-            confirmText: 'OK'
-          })
-        } else {
+    if (this.data.editedId !== undefined && this.data.editedId !== null) {
+      wx.request({
+        header: app.globalData.header,
+        url: `${app.globalData.baseURL}/pets/${page.data.editedId}`,
+        method: 'PUT',
+        data: {pet: pet},
+        success(res) {
+          console.log('update success?', res)
           wx.switchTab({
             url: '/pages/pets/index',
           })
         }
-      },
-      fail(error) {
-        console.log({error})
-      }
-    })
+      })
+    } else {
+
+      wx.request({
+        header: app.globalData.header,
+        url: `${app.globalData.baseURL}/pets`,
+        method: 'POST',
+        data: { pet: pet },
+        success(res) {
+          console.log('update success?', res)
+          if (res.statusCode === 422) {
+            wx.showModal({
+              title: 'Error!',
+              content: res.data.errors.join(', '),
+              showCancel: false,
+              confirmText: 'OK'
+            })
+          } else {
+            wx.switchTab({
+              url: '/pages/pets/index',
+            })
+          }
+        },
+        fail(error) {
+          console.log({error})
+        }
+      })
+    }
   }
 })
