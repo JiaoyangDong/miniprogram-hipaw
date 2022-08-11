@@ -34,7 +34,7 @@ Page({
       header: app.globalData.header,
       success(res) {
         console.log("From profile.js: onshow request succesfully")
-        console.log("Frome profile.js: res",res)
+        console.log("From profile.js: res",res)
         if (res.statusCode === 200) {
           page.setData({
             pets: res.data.pets,

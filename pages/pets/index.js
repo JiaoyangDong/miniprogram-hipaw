@@ -45,13 +45,13 @@ Page({
     //   imagesLoaded( allItems[x], resizeInstance);
     // }
     const page = this
-    console.log('header', app.globalData.header)
+    console.log('From index.js onshow: header', app.globalData.header)
     wx.request({
       url: `${app.globalData.baseURL}/pets`,
       method: "GET",
       header: app.globalData.header,
       success(res) {
-        console.log(res.data)
+        console.log("From index.js onshow: res.data",res.data)
         page.setData({
           pets: res.data
         })
@@ -94,9 +94,9 @@ Page({
 
   },
   goToPet(e) {
-    console.log('goToPet', e)
+    console.log('From index.js - goToPet: e', e)
     const id = e.currentTarget.dataset.id
-    console.log(id)
+    console.log("From index.js - goToPet: petid: ",id)
     wx.navigateTo({
         url: `/pages/pets/show?id=${e.currentTarget.dataset.id}`,
       })
