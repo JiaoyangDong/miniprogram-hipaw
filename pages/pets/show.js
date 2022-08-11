@@ -21,7 +21,6 @@ Page({
       url: `${app.globalData.baseURL}/pets/${id}`,
       success(res) {
         console.log({res})
-        // const pet = res.pet;
         const pet = res.data;
         page.setData({
           pet: pet,
@@ -32,7 +31,7 @@ Page({
   },
 
   edit(e) {
-
+    wx.setStorageSync('editedId', this.data.pet.id)
     wx.switchTab({
       header: app.globalData.header,
       url: `/pages/pets/form`,

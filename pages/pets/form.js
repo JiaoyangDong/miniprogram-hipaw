@@ -29,8 +29,10 @@ Page({
   onShow: function () {
     console.log("form onshow")
     this.resetForm()
-    let page = this
-    let id = wx.getStorageSync('editedId')
+    const page = this
+    const id = wx.getStorageSync('editedId')
+
+    console.log(id)
     if (id) {
       console.log('id found -> update')
       wx.request({
@@ -89,7 +91,6 @@ Page({
     console.log(e)
     const pet = e.detail.value
     console.log(pet)
-    // const pets = wx.getStorageSync('pets')
     const page = this
     
     if (this.data.editedId !== undefined && this.data.editedId !== null) {
