@@ -7,6 +7,22 @@
     </swiper-item>
   </block>
 </swiper>
+
+<!-- <view class="filter-bar">
+  <block wx:for="{{filterbaritems}}" wx:for-item="item">
+    <view class="filter-bar-item" bindtap="showMenu">
+      <view class="filter-bar-item-name">{{item.title}}</view>
+    </view>
+  </block>
+</view> -->
+
+<wux-filterbar
+      items="{{ items }}"
+      bind:change="onChange"
+      bind:open="onOpen"
+      bind:close="onClose"
+    />
+
 <view class="cards-box">
   <block wx:if="{{!pets.length}}">
     <view class="no-pets-message">Oops, there aren't any pets listed yet!</view>

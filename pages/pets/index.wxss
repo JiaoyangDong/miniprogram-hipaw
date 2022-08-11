@@ -1,7 +1,11 @@
+@import "../../style/font.wxss";
+@import '../../dist/filterbar/index.wxss';
+
+
 .event-swiper {
   background-color: rgba(0, 181, 163, .5);
   margin: 20rpx;
-  height: 240rpx;
+  height: 350rpx;
   border-radius: 10rpx;
 }
 
@@ -11,6 +15,7 @@
   border-radius: 10rpx;
   color: #00B5A3;
   font-size: 38rpx;
+  font-family: MontserratBoldItalic;
   display: flex;
   justify-content: center;
   /* font-weight: bold; */
@@ -101,4 +106,25 @@
   position: sticky;
   top: 0;
   z-index: 999;
+}
+
+.filter-bar {
+  background-color: white;
+  color: "#404040";
+  font-size: 32rpx;
+  display: flex;
+  margin-top: 32rpx;
+  margin-bottom: 16rpx;
+  margin-left: 20rpx;
+  margin-right: 50rpx;
+  justify-content: space-between;
+}
+
+.filter-bar-item {
+  margin-left: 20rpx;
+}
+
+.filter-bar-item:focus {
+  color:rgba(0, 181, 163, 1);
+  font-weight: bold;
 }
