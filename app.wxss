@@ -12,3 +12,26 @@
   padding: 150rpx 0;
   box-sizing: border-box;
 } 
+
+/* primary buttons */
+.pri-btn {
+  /* background-color:#F79256; */
+  background-color: #00B5A3;
+  color: white;
+  margin-bottom: 50rpx;
+}
+
+/* secondary buttons */
+.sec-btn {
+  color: white;
+  background-color: #404040;
+  margin-bottom: 15rpx;
+}
+
+/* outline buttons */
+.out-btn {
+  color: #404040;
+  background-color: transparent;
+  border: 1px solid #404040;
+  margin-bottom: 15rpx;
+}
