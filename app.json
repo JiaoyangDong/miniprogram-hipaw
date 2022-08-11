@@ -5,6 +5,7 @@
     "pages/pets/show",
     "pages/pets/form",
     "pages/users/profile",
+    "pages/booking/show",
     "pages/index/index"
   ],
   "window":{
