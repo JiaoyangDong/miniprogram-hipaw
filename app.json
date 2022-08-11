@@ -9,34 +9,29 @@
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#FBD1A2",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "HiPaw",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "backgroundColor": "#FBD1A2",
-    "color": "#808080",
-    "selectedColor": "#000000",
+    "backgroundColor": "#ffffff",
+    "color": "#404040",
+    "selectedColor": "#00B5A3",
     "list": [{
-      "pagePath": "pages/landing/landing",
-      "text": "Home",
-      "iconPath": "images/home-active.png",
-      "selectedIconPath": "images/home.png"
-    }, {
       "pagePath": "pages/pets/index",
-      "text": "Find",
-      "iconPath": "images/find-active.png",
-      "selectedIconPath": "images/find.png"
+      "text": "Home",
+      "iconPath": "images/home.png",
+      "selectedIconPath": "images/home-active.png"
     }, {
       "pagePath": "pages/pets/form",
-      "text": "Post",
-      "iconPath": "images/post-active.png",
-      "selectedIconPath": "images/post.png"
+      "text": "Submit",
+      "iconPath": "images/post.png",
+      "selectedIconPath": "images/post-active.png"
     }, {
       "pagePath": "pages/users/profile",
       "text": "Me",
-      "iconPath": "images/me-active.png",
-      "selectedIconPath": "images/me.png"
+      "iconPath": "images/me.png",
+      "selectedIconPath": "images/me-active.png"
     }]
   },
 

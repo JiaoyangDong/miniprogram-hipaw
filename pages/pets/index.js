@@ -8,7 +8,25 @@ Page({
    */
   data: {
     pets: [],
-    sex: ''
+    sex: '',
+    events: [
+      {
+        name: "Adoption Day",
+        description: "Come to the shelter and meet your new best friend. Snacks and drinks provided!",
+        date: "August 2nd",
+        time: "15:00",
+        location: "HiPaw Rescue",
+        backgroundurl: "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+      },
+      {
+        name: "End-of-Summer Party",
+        description: "Come along with your fur baby! Good food and great company all in support of HiPaw. If you don't have a pet, there will be some there for you to meet too!",
+        date: "August 28th",
+        time: "14:00",
+        location: "Charlie's on Wuding Lu",
+        backgroundurl: "https://images.unsplash.com/photo-1546484488-2a1430996887?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80"
+      }
+    ]
   },
 
   /**
