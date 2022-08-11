@@ -29,7 +29,6 @@
 
 .picture {
   position: relative;
-
 }
 
 .icon {
@@ -38,35 +37,36 @@
 }
 
 .sticky-bottom {
-  position: sticky;
-  bottom: 0rpx;
-  padding: 30rpx;
+  position: fixed;
+  bottom: 80rpx;
   background-color: white;
   height: 100rpx;
-  margin-bottom: 20rpx;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
   display: flex;
 }
  .pet-info {
-  margin-left: 40rpx
+  color:#5e2c0f;
  }
 
  .h1 {
    font-size: 16pt;
   }
 
-  .og-button {
-    background-color:#F79256;
-    color: black;
-    margin-bottom: 50rpx;
-  }
   .edit-btn {
     margin-bottom: 15rpx;
   }
   
   .delete-btn {
     margin-bottom: 15rpx;
+  }
+  .og-button {
+    background-color:#F79256;
+    color: #5e2c0f;
+    margin-top: 60rpx;
+    /* bottom: 580rpx; */
+    /* right: 10rpx; */
+    /* position: fixed; */
+    /* display: inline-block; */
+    font-size: 10rpt;
   }
 
   .filter {
@@ -79,3 +79,4 @@
     border-radius: 5px;
     z-index: 1;
   }
+  

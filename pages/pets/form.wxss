@@ -1,6 +1,5 @@
 .picker{
-    padding: 13px;
-    background-color: #FFFFFF;
+    padding: 16rpx;
 }
 .main {
   background: #ffffff;
@@ -16,18 +15,17 @@
 }
 
 .form-item {
-  margin-bottom: 10rpx;
+  margin-bottom: 20rpx;
 }
-label {
-  padding: 15rpx;
-}
+
 input {
-  border: 1px solid #404040;
-  border-radius: 5rpx;
-  padding: 15rpx;
-  margin-top: 10rpx;
+  background-color: #F0EFEF;
+  border-radius: 120rpx;
+  padding: 14rpx;
+  margin-top: 14rpx;
 }
 textarea {
-  border: 1px solid #404040;
-  border-radius: 5rpx;
+  background-color: #F0EFEF;
+  border-radius: 80rpx;
+  margin-top: 14rpx;
 }

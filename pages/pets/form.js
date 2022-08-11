@@ -7,8 +7,8 @@ Page({
     district: '',
     sex: '',
     fur_type: '',
+    src: '',
     formData: {},
-    src: [],
   },
   onLoad(options) {
   },
@@ -26,7 +26,6 @@ Page({
         url: `${app.globalData.baseURL}/pets/${id}`,
         success(res) {
           let data = page.data
-
           page.setData({
             districtIndex: data.districts.findIndex(el => (el === res.data.district)),
             sexIndex: data.sexes.findIndex(el => (el === res.data.sex)),
@@ -57,6 +56,31 @@ Page({
       this.setData({ formData, furTypeIndex: e.detail.value})
     }
   },
+  listenerBtnChooseImage: function () {
+    var page = this
+    // Upload an image
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        console.log(res)
+        console.log('img successfully uploaded')
+        page.setData({
+          src: res.tempFilePaths
+        })
+        // Get image info
+        wx.getImageInfo({
+          src: res.tempFilePaths[0],
+          success: function (res) {
+            console.log(res.width)
+            console.log(res.height)
+            console.log(res.path)
+          }
+        })
+       }
+     })
+   },
   onHide() {
   },
 
@@ -120,28 +144,4 @@ Page({
     }
   },
 
-  listenerBtnChooseImage: function () {
-    var that = this
-    // Upload an image
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success: function (res) {
-        console.log('success')
-        that.setData({
-          src: res.tempFilePaths
-        })
-        // Get image info
-        wx.getImageInfo({
-          src: res.tempFilePaths[0],
-          success: function (res) {
-            console.log(res.width)
-            console.log(res.height)
-            console.log(res.path)
-          }
-        })
-       }
-     })
-   },
 })

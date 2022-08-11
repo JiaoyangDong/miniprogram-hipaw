@@ -9,22 +9,17 @@
     <view class="filter"></view>
     <image class="pet-avt" mode="aspectFill" src="{{pet.image_url}}"></image>
   </view>
-  <view class="pet-info">
-    <view> 📍 {{pet.district}}</view>
-    <view>Age: {{pet.age}}</view>
-    <view>Sex: {{pet.sex}}</view>
-    <view>Fur type: {{pet.fur_type}}</view>
-    <view>{{pet.description}}</view>
+  <view class="pet-info" style="margin: auto 30rpx; border: transparent; text-align: start; padding-left: 10rpx;">
+    <view style="padding-bottom: 8rpx;"> I live in {{pet.district}} district</view>
+    <view style="padding-bottom: 8rpx;">My age : {{pet.age}}</view>
+    <view style="padding-bottom: 8rpx;">My gender : {{pet.sex}}</view>
+    <view style="padding-bottom: 8rpx;"> I wear {{pet.fur_type}} coat</view>
+    <view style="padding-bottom: 8rpx;">More about me: {{pet.description}}</view>
   </view>
 
-  <view class="container">
     <button class="og-button">Meet & Greet</button>
-  </view>
-
   <view class="sticky-bottom">
     <button bindtap="edit" class="edit-btn" type="default" plain="true">edit</button>
-   
     <button bindtap="delete" class="delete-btn" type="warn" plain="true">delete</button>
   </view>
-
 </view>
