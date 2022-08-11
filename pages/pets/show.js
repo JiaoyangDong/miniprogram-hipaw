@@ -6,6 +6,7 @@ Page({
    * Page initial data
    */
   data: {
+    isAdopter: true
   },
 
   /**
@@ -20,8 +21,11 @@ Page({
       url: `${app.globalData.baseURL}/pets/${id}`,
       success(res) {
         console.log({res})
+        const pet = res.data;
         page.setData({
-          pet: res.data});
+          pet: pet,
+          isAdopter: app.globalData.id !== pet.user_id
+        });
       }
     })
   },
@@ -107,6 +111,10 @@ Page({
    * Called when user click on the top right corner to share
    */
   onShareAppMessage() {
+
+  },
+
+  startEdit: function(){
 
   }
 })
