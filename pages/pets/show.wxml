@@ -1,6 +1,6 @@
 <!--pages/pets/show.wxml-->
 
-<view class="main">
+<view class="pageContainer">
   <view class="picture">
     <view class="favorite-icon">
       <image class="icon" src="/images/aixin-2.png"></image>
@@ -17,15 +17,14 @@
   </view>
 
   <view class="sticky-bottom">
-    <view class="meet-card">
-    <!-- <view class="meet-card" wx:if="{{isAdopter}}"> -->
-      <button class="meet-btn">Meet & Greet</button>
+    <!-- <view class="meet-card"> -->
+    <view class="meet-card" wx:if="{{isAdopter}}">
+      <button style="width:42vw" class="meet-btn">Meet & Greet</button>
     </view>
-    <view class="edit-card">
-    <!-- <view class="edit-card" wx:else> -->
-      <button bindtap="edit" class="edit-btn">edit</button>
-      <view class="btn-space"></view>
-      <button bindtap="delete" class="delete-btn">delete</button>
+    <!-- <view class="edit-card"> -->
+    <view class="edit-card" wx:else>
+      <button style="width:40vw" bindtap="edit" class="edit-btn">edit</button>
+      <button style="width:40vw" bindtap="delete" class="delete-btn">delete</button>
     </view>
   </view>
 

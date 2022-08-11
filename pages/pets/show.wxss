@@ -1,8 +1,13 @@
 /* pages/pets/show.wxss */
-
-.main {
-  align-items: center;
+page {
+  height: 100vh;
+  background-color: white;
 }
+
+.pageContainer {
+  overflow-y: scroll;
+}
+
 .favorite-icon {
   position: absolute;
   top: 30rpx;
@@ -41,15 +46,15 @@
   position: sticky;
   bottom: 0rpx;
   padding: 30rpx;
-  background-color: white;
-  height: 100rpx;
+  background-color: transparent;
+  height: 250rpx;
   margin-bottom: 20rpx;
   margin-left: 20rpx;
   margin-right: 20rpx;
-  /* display: flex; */
 }
  .pet-info {
-  margin-left: 40rpx
+  margin-left: 40rpx;
+  margin-bottom: 70rpx;
  }
 
  .h1 {
@@ -59,10 +64,8 @@
   .edit-card {
     display: flex;
     justify-content: space-between;
-    
   }
   .meet-btn {
-    /* background-color:#F79256; */
     background-color: #00B5A3;
     color: white;
     margin-bottom: 50rpx;
@@ -72,12 +75,9 @@
     background-color: #404040;
     margin-bottom: 15rpx;
   }
-  .btn-space {
-    width: 20rpx;
-  }
   .delete-btn {
     color: #404040;
-    background-color: white;
+    background-color: transparent;
     border: 1px solid #404040;
     margin-bottom: 15rpx;
   }

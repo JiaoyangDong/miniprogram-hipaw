@@ -25,7 +25,6 @@ Page({
         const pet = res.data;
         page.setData({
           pet: pet,
-          // isCreater: app.globalData.id === pet.user_id
           isAdopter: app.globalData.id !== pet.user_id
         });
       }
