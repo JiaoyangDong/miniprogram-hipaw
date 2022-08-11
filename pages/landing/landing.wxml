@@ -1,4 +1,7 @@
 <!--pages/landing/landing.wxml-->
+<loading hidden="{{loadingHidden}}">
+      page loading...
+</loading>
 <view class="pageContainer">
   <view class="header">
     <view class="card-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1415369629372-26f2fe60c467?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80);">

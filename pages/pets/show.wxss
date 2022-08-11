@@ -40,13 +40,12 @@
 .sticky-bottom {
   position: sticky;
   bottom: 0rpx;
-  padding: 20rpx;
+  padding: 30rpx;
   background-color: white;
   height: 100rpx;
   margin-bottom: 20rpx;
   margin-left: 20rpx;
   margin-right: 20rpx;
-  text-align: center;
   display: flex;
 }
  .pet-info {

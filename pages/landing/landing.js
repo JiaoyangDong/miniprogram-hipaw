@@ -7,13 +7,18 @@ Page({
    * Page initial data
    */
   data: {
-
+    loadingHidden: false,
   },
 
   /**
    * Lifecycle function--Called when page load
    */
-
+  onLoad(options) {
+    
+    // wx.showLoading({
+    //   title: 'page loading..',
+    // });
+  },
   startPageX: 0,
   currentView: DEFAULT_PAGE,
   data: {
@@ -41,15 +46,19 @@ Page({
     });
   },
 
-  onLoad(options) {
-
-  },
-
   /**
    * Lifecycle function--Called when page is initially rendered
    */
   onReady() {
-
+    // wx.showToast({
+    //   title: 'page load sucess!',
+    //   icon: 'success',
+    //   duration: 2000
+    // })
+    // wx.hideToast();
+    this.setData({
+      loadingHidden: true,
+    })
   },
 
   /**
