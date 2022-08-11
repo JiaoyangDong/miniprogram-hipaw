@@ -34,7 +34,7 @@ App({
     userInfo: null,
     header: null,
     user: null,
-    // baseURL: "https://hipaw-api.herokuapp.com/api/v1",
-    baseURL: "http://localhost:3000/api/v1"
+    baseURL: "https://hipaw-api.herokuapp.com/api/v1",
+    // baseURL: "http://localhost:3000/api/v1"
   }
 })
