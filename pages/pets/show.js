@@ -6,48 +6,119 @@ Page({
    * Page initial data
    */
   data: {
+    date: "",
+    time: "",
+    showBookingModal: false,
+    booking: {},
     isAdopter: true
   },
 
   /**
    * Lifecycle function--Called when page load
    */
-  onLoad: function (options) {
-    console.log('inside pets/show, options: ', options)
+  onLoad(options) {
+    console.log('From show.jz - onload: options ', options)
     let id = options.id
     let page = this
     wx.request({
       header: app.globalData.header,
       url: `${app.globalData.baseURL}/pets/${id}`,
       success(res) {
-        console.log({res})
-        // const pet = res.pet;
-        const pet = res.data;
-        page.setData({
-          pet: pet,
-          isAdopter: app.globalData.id !== pet.user_id
-        });
+        console.log("From show.js - onload: res",res)
+        if (res.statusCode === 200) {
+          const pet = res.data;
+          const date = new Date()
+          page.setData({
+            pet: pet,
+            isAdopter: app.globalData.user.id !== pet.user_id,
+            date: date.toISOString().split('T')[0]
+          });
+          console.log("From show.js - pet: ", page.data.pet)
+          console.log("test date: ", page.data.date)
+        } else {
+          console.log("From show.js: status code is", res.statusCode)
+        }
       }
     })
   },
 
-  edit(e) {
+  showBookingWindow(e) {
+    console.log("From show.js - booking: e ", e)
+    this.setData({
+      showBookingModal: true
+    })
 
+  },
+  removeBookingWindow(){
+    console.log("From show.js: removeBookingWindow")
+    this.setData({
+      showBookingModal: false
+    })
+  },
+  submitBooking(e){
+    console.log("From show.js - submitBooking: e", e)
+    console.log(this.data.date)
+    console.log(this.data.time)
+    const dateAndTime = Date(`${this.data.date} ${this.data.time}`)
+    console.log(dateAndTime)
+    let page = this
+    wx.request({
+      url: `${app.globalData.baseURL}/pets/${this.data.pet.id}/bookings`,
+      header: app.globalData.header,
+      method: "POST",
+      data: {
+        date_and_time: dateAndTime
+      },
+      success(res){
+        console.log("From show.js - submit booking: res",res)
+        if (res.statusCode === 201) {
+          console.log("From show.js - booking submit successfully!")
+          console.log("From show.js : res.data", res.data)
+          const booking = res.data;
+          page.setData({
+            // pet: pet,
+            // date: date.toISOString().split('T')[0]
+          });
+          // console.log("test date: ", page.data.date)
+        } else {
+          console.log("From show.js: status code is", res.statusCode)
+        }
+      }
+    })
+  },
+
+  bindDateChange(e) {
+    console.log('From show.js - bindDateChange: e', e)
+    console.log('From show.js - bindDateChange: picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      date: e.detail.value
+    })
+  },
+  bindTimeChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      time: e.detail.value
+    })
+  },
+
+  edit(e) {
+    wx.setStorageSync('editedId', this.data.pet.id)
     wx.switchTab({
       header: app.globalData.header,
       url: `/pages/pets/form`,
     })
   },
+
   delete(e) {
     let id = this.data.pet.id
     wx.showModal({
       title: 'Are you sure?',
-      content: 'Delete this pet???',
+      content: 'Are you sure to delete this pet?',
       success(res) {
         if (res.confirm) {
           wx.request({
             header: app.globalData.header,
-            url: `http://localhost:3000/api/v1/pets/${id}`,
+            url: `${app.globalData.baseURL}/pets/${id}`,
             method: 'DELETE',
             success(res){
               wx.switchTab({

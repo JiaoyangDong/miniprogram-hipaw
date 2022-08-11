@@ -1,3 +1,36 @@
+@import "../../style/font.wxss";
+@import '../../dist/filterbar/index.wxss';
+
+
+.event-swiper {
+  background-color: rgba(0, 181, 163, .5);
+  margin: 20rpx;
+  height: 350rpx;
+  border-radius: 10rpx;
+}
+
+.event-card {
+  background-size:cover;
+  background-position: center;
+  border-radius: 10rpx;
+  color: #00B5A3;
+  font-size: 38rpx;
+  font-family: MontserratBoldItalic;
+  display: flex;
+  justify-content: center;
+  /* font-weight: bold; */
+  /* background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)); */
+}
+
+.event-name {
+  background-color: rgba(0, 0, 0, .5);
+  width: fit-content;
+  padding: 15rpx;
+  margin: 20rpx;
+  border-radius: 15rpx;
+  height: fit-content
+}
+
 .cards-box {
   columns: 2;
   padding: 20rpx;
@@ -14,6 +47,10 @@
   width: 100%; 
   margin: 20rpx 0;
   border-radius: 5px;
+}
+
+.cards-box .pet-card:nth-child(1) {
+  margin-top: 6rpx;
 }
 
 .pet-image {
@@ -73,4 +110,25 @@
   position: sticky;
   top: 0;
   z-index: 999;
+}
+
+.filter-bar {
+  background-color: white;
+  color: "#404040";
+  font-size: 32rpx;
+  display: flex;
+  margin-top: 32rpx;
+  margin-bottom: 16rpx;
+  margin-left: 20rpx;
+  margin-right: 50rpx;
+  justify-content: space-between;
+}
+
+.filter-bar-item {
+  margin-left: 20rpx;
+}
+
+.filter-bar-item:focus {
+  color:rgba(0, 181, 163, 1);
+  font-weight: bold;
 }

@@ -26,6 +26,15 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow() {
+    if (app.globalData.header) {
+      // proceed to fetch api
+      this.getData()
+    } else {
+      // wait until loginFinished, then fetch API
+      wx.event.on('loginFinished', this, this.getData)
+    }
+  }, 
+  getData(){
     const user_id = app.globalData.user.id
     const page = this
     wx.request({
@@ -34,10 +43,11 @@ Page({
       header: app.globalData.header,
       success(res) {
         console.log("From profile.js: onshow request succesfully")
-        console.log("Frome profile.js: res",res)
+        console.log("From profile.js: res",res)
         if (res.statusCode === 200) {
           page.setData({
             pets: res.data.pets,
+            booked_pets: res.data.booked_pets,
             user_id: user_id
           })
         } else {
@@ -80,5 +90,13 @@ Page({
    */
   onShareAppMessage() {
 
-  }
+  },
+  goToPet(e) {
+    console.log('From index.js - goToPet: e', e)
+    const id = e.currentTarget.dataset.id
+    console.log("From index.js - goToPet: petid: ",id)
+    wx.navigateTo({
+        url: `/pages/pets/show?id=${e.currentTarget.dataset.id}`,
+      })
+  },
 })
