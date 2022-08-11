@@ -35,7 +35,7 @@
   bind:goback="removeBookingWindow" 
   text="Choose a time to meet with {{pet.name}}"/> -->
 <view class="background" 
-  bindtap="{{removeBookingWindow}}" 
+  bindtap="removeBookingWindow" 
   wx:if="{{showBookingModal}}">
 </view>
 <view class="pop-up-window" 

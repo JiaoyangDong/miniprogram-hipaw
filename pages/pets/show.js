@@ -30,9 +30,10 @@ Page({
           const date = new Date()
           page.setData({
             pet: pet,
-            isAdopter: app.globalData.id !== pet.user_id,
+            isAdopter: app.globalData.user.id !== pet.user_id,
             date: date.toISOString().split('T')[0]
           });
+          console.log("From show.js - pet: ", page.data.pet)
           console.log("test date: ", page.data.date)
         } else {
           console.log("From show.js: status code is", res.statusCode)
