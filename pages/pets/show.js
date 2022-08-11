@@ -28,6 +28,7 @@ Page({
 
   edit(e) {
     wx.setStorageSync('editedId', this.data.pet.id)
+    console.log(this.data.pet)
     wx.switchTab({
       header: app.globalData.header,
       url: `/pages/pets/form`,

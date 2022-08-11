@@ -1,47 +1,59 @@
 <!--pages/pets/form.wxml-->
-
 <view class="main">
   <view class="form-box">
     <form bindsubmit="save">
       <view class="form-item">Pet name
         <input name="name" value="{{formData.name}}"/>
-          </view>
+      </view>
+      
       <view class="form-item">age
         <input name="age" value="{{formData.age}}"/>
-          </view>
-      <view class="form-item">district
-        <input name="district" value="{{formData.district}}"/>
-          </view>
-        <view class="form-item">species
-          <radio-group name="species">
-            <label><radio color="#00B2CA" value="dog"/>dog</label>
-            <label><radio color="#00B2CA" value="cat"/>cat</label>
-            <label><radio color="#00B2CA" value="other"/>other</label>
-          </radio-group>
-          </view>
+      </view>
+
       <view class="form-item">description
-        <input type="text" name="description" value="{{formData.description}}"/>  
+        <textarea type="text" name="description" value="{{formData.description}}"/>  
+      </view>
+
+      <view class="form-item">
+        <picker bindchange="bindPickerChange" data-field="district" value="{{districtIndex}}" range="{{districts}}">
+          <view class="picker">
+            district：{{formData.district}}
           </view>
-      <view  class="form-item">gender
-          <radio-group name="sex">
-            <label><radio color="#00B2CA" value="female"/>female</label>
-            <label><radio color="#00B2CA" value="male"/>male</label>
-          </radio-group>
+        </picker>
+      </view>
+
+      <view class="form-item">
+        <picker bindchange="bindPickerChange" data-field="sex" value="{{sexIndex}}" range="{{sexes}}">
+          <view class="picker">
+            gender：{{formData.sex}}
           </view>
-      <view class="form-item">fur type
-          <radio-group name="fur_type">
-            <label><radio color="#00B2CA" value="long" />long</label>
-            <label><radio color="#00B2CA" value="short"/>short</label>
-          </radio-group>
+        </picker>
+      </view>
+
+      <view class="form-item">
+        <picker bindchange="bindPickerChange" data-field="fur_type" value="{{furTypeIndex}}" range="{{fur_types}}">
+          <view class="picker">
+            fur type：{{formData.fur_type}}
           </view>
-      <view class="form-item" style="margin-bottom: 40rpx;">upload photo
-        <input type="url" name="image_url" value="{{formData.image_url}}"/>  
-          </view>
-      <view class="btn-area">
-          <button style="margin: 20rpx; background-color: #00B2CA; color: #1D4E89;" type="default" formType="submit">Post</button>
-          <button style="margin: 20rpx; background-color: #00B2CA; color: #1D4E89;" formType="reset">Reset</button>
-          </view>
-      </form>
-    </view>
+        </picker>
+      </view>
+
+      <view class="form-item">
+        <image src="{{src}}" style="width: 80px; height: 80px;" mode="aspectFit"/>
+        <button type="primary" bindtap="listenerBtnChooseImage">Upload Image</button>
+      </view>
+      <view class="form-item">
+          <button style="background-color: #00B5A3; color: #404040;" type="default" formType="submit">Post</button>          
+      </view>
+    </form>
+  </view>
 </view> 
+
+      <!-- <view class="form-item" style="margin-bottom: 40rpx;">upload photo
+        <input type="url" name="image_url" value="{{formData.image_url}}"/>  
+      </view> -->
+     
+        
+
+
 
