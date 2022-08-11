@@ -7,6 +7,7 @@ Page({
    * Page initial data
    */
   data: {
+    loadingHidden: false,
     pets: [],
     sex: '',
     events: [
@@ -171,7 +172,9 @@ Page({
    * Lifecycle function--Called when page is initially rendered
    */
   onReady() {
-
+    this.setData({
+      loadingHidden: true,
+    })
   },
 
   /**

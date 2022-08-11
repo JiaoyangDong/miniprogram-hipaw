@@ -8,6 +8,15 @@
   </block>
 </swiper>
 
+<view class="loading-screen" hidden="{{loadingHidden}}">
+  <view class="loading">
+    <view class="sq1"></view>
+    <view class="sq2"></view>
+    <view class="sq3"></view>
+    <view class="sq4"></view>
+  </view>
+</view>
+
 <!-- <view class="filter-bar">
   <block wx:for="{{filterbaritems}}" wx:for-item="item">
     <view class="filter-bar-item" bindtap="showMenu">
