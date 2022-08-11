@@ -29,6 +29,7 @@
 
 </view>
 
+
 <!-- Booking model -->
 <!-- <booking 
   wx:if="{{showBookingModal}}" 
@@ -40,7 +41,7 @@
 </view>
 <view class="pop-up-window" 
   wx:if="{{showBookingModal}}">
-  <view class="header" >{{text}}</view>
+  <view class="header" >Book a time to meet {{pet.name}}</view>
   <!-- pick date -->
   <picker 
     mode="date" 
@@ -48,7 +49,7 @@
     start="{{date}}" 
     end="2030-12-31" 
     bindchange="bindDateChange">
-    <view class="picker" style="background-color: lightblue;">
+    <view class="picker" style="background-color: red;">
       Date: {{date}}
     </view>
   </picker>
@@ -56,10 +57,10 @@
   <picker mode="time" value="{{time}}" 
     start="09:01" end="21:01" 
     bindchange="bindTimeChange" >
-    <view class="picker" style="background-color: lightblue;">
+    <view class="picker" style="background-color: red;">
       Time: {{time}}
     </view>
   </picker>
-  <button bindtap="submitBooking">Submit</button>
+  <button class="pri-btn" style="margin-top: 60rpx;" bindtap="submitBooking">Send</button>
 </view>
 

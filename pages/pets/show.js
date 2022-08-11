@@ -17,24 +17,27 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-    console.log('From show.jz - onload: options ', options)
-    let id = options.id
+  },
+
+  onShow(){
     let page = this
+    console.log('From show.js - onshow: options ', this.options)
+    let id = this.options.id
     wx.request({
       header: app.globalData.header,
       url: `${app.globalData.baseURL}/pets/${id}`,
       success(res) {
-        console.log("From show.js - onload: res",res)
+        console.log("From show.js - onshow: res",res)
         if (res.statusCode === 200) {
           const pet = res.data;
           const date = new Date()
           page.setData({
             pet: pet,
             isAdopter: app.globalData.user.id !== pet.user_id,
-            date: date.toISOString().split('T')[0]
+            date: date.toISOString().split('T')[0],
+            time: `${date.getHours()}:${date.getMinutes()}`
           });
-          console.log("From show.js - pet: ", page.data.pet)
-          console.log("test date: ", page.data.date)
+          console.log("From show.js - after onload: page.data ", page.data)
         } else {
           console.log("From show.js: status code is", res.statusCode)
         }
@@ -57,10 +60,10 @@ Page({
   },
   submitBooking(e){
     console.log("From show.js - submitBooking: e", e)
-    console.log(this.data.date)
-    console.log(this.data.time)
+    // console.log(this.data.date)
+    // console.log(this.data.time)
     const dateAndTime = Date(`${this.data.date} ${this.data.time}`)
-    console.log(dateAndTime)
+    // console.log(dateAndTime)
     let page = this
     wx.request({
       url: `${app.globalData.baseURL}/pets/${this.data.pet.id}/bookings`,
@@ -74,14 +77,29 @@ Page({
         if (res.statusCode === 201) {
           console.log("From show.js - booking submit successfully!")
           console.log("From show.js : res.data", res.data)
-          const booking = res.data;
-          page.setData({
-            // pet: pet,
-            // date: date.toISOString().split('T')[0]
-          });
+          const booking = res.data.booking;
+          wx.navigateTo({
+            url: `/pages/booking/show?id=${booking.id}`,
+          })
           // console.log("test date: ", page.data.date)
         } else {
           console.log("From show.js: status code is", res.statusCode)
+          console.log("From show.js: error message", res.data.errors)
+          const bookingId = res.data.booking.id
+          wx.showModal({
+            title: 'Error!',
+            content: res.data.errors.join(', '),
+            cancelText: "OK",
+            confirmText: 'Details',
+            success(res) {
+              console.log(res)
+              if (res.confirm) {
+                wx.redirectTo({
+                  url: `../booking/show?id=${bookingId}`,
+                })
+              }
+            }
+          })
         }
       }
     })
@@ -143,9 +161,9 @@ Page({
   /**
    * Lifecycle function--Called when page show
    */
-  onShow() {
+  // onShow() {
 
-  },
+  // },
 
   getData() {
     wx.request({})
