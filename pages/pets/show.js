@@ -29,7 +29,8 @@ Page({
       success(res) {
         console.log("From show.js - onshow: res",res)
         if (res.statusCode === 200) {
-          const pet = res.data;
+          console.log("From show.js - onshow: booking", res.data.my_booking)
+          const pet = res.data.pet;
           const date = new Date()
           page.setData({
             pet: pet,
