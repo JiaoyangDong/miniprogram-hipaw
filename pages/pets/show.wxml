@@ -8,23 +8,28 @@
     <view class="filter"></view>
     <image class="pet-avt" mode="aspectFill" src="{{pet.image_url}}"></image>
   </view>
-  <view class="pet-info" style="margin: auto 30rpx; border: transparent; text-align: start; padding-left: 10rpx;">
-    <view style="padding-bottom: 8rpx;"> I live in {{pet.district}} district</view>
-    <view style="padding-bottom: 8rpx;">I am : {{pet.age}} old</view>
-    <view style="padding-bottom: 8rpx;">I am a : {{pet.sex}} {{pet.species}}</view>
-    <view style="padding-bottom: 8rpx;"> I wear {{pet.fur_type}} coat</view>
-    <view style="padding-bottom: 8rpx;">More about me: {{pet.description}}</view>
+  <view class="pet-info" style="margin: 10rpx 10rpx; text-align: start; padding-left: 0rpx; padding-right: 20rpx;">
+    <view class="info-title" style="padding-bottom: 10rpx;">{{pet.description}}</view>
+    <view style="padding-bottom: 8rpx;"><text class="info">I live in</text> {{pet.district}} district</view>
+    <view style="padding-bottom: 8rpx;"><text class="info">I am</text> {{pet.age}} old</view>
+    <view style="padding-bottom: 8rpx;"><text class="info">My gender is</text> {{pet.sex}}</view>
+    <view style="padding-bottom: 8rpx;"><text class="info">I wear</text> {{pet.fur_type}} fur coat</view>
   </view>
 
   <view class="sticky-bottom">
-    <!-- <view class="meet-card"> -->
-    <view class="meet-card" wx:if="{{isAdopter}}">
-      <button style="width:42vw" class="meet-btn" bindtap="showBookingWindow">Meet & Greet</button>
-    </view>
-    <!-- <view class="edit-card"> -->
-    <view class="edit-card" wx:else>
+    <view class="edit-card" wx:if="{{isCreater}}">
       <button style="width:40vw" bindtap="edit" class="edit-btn">edit</button>
       <button style="width:40vw" bindtap="delete" class="delete-btn">delete</button>
+    </view>
+
+    <view class="meet-card" wx:if="{{(!isCreater)&&(!isBooker)}}">
+      <button style="width:42vw" class="meet-btn" bindtap="showBookingWindow">Meet & Greet</button>
+    </view>
+
+    <view class="booking-card" style="margin: 10rpx 10rpx; padding-bottom: 70rpx; text-align: center;" wx:if="{{isBooker}}">
+      <text class="booking-info">
+        Yay! {{dayRemaining}} days till you meet {{pet.name}}
+      </text>
     </view>
   </view>
 </view>

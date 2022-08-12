@@ -10,7 +10,9 @@ Page({
     time: "",
     showBookingModal: false,
     booking: {},
-    isAdopter: true
+    // isAdopter: false,
+    // isCreater: false,
+    // isBooker: false
   },
 
   /**
@@ -29,16 +31,31 @@ Page({
       success(res) {
         console.log("From show.js - onshow: res",res)
         if (res.statusCode === 200) {
-          console.log("From show.js - onshow: booking", res.data.my_booking)
+          console.log("From show.js - onshow: booking", res.data.my_booking);
+          // console.log("From show.js - onshow: booking's user_id",res.data.my_booking.user_id);
+          console.log("From show.js - onshow: pet's user_id", res.data.pet.user_id)
+         
           const pet = res.data.pet;
+          // console.log("From show.js - onshow: create date", pet.created_at)
+          const booking = res.data.my_booking;
+          
           const date = new Date()
+          // const date = Date(booking.date_and_time)
+          // console.log("From show.js - onshow: meetingdate", booking.date_and_time)
           page.setData({
             pet: pet,
-            isAdopter: app.globalData.user.id !== pet.user_id,
+            isCreater: app.globalData.user.id === pet.user_id,
+            // isAdopter: app.globalData.user.id !== pet.user_id,
+            isBooker: booking, 
+            booking: booking,
             date: date.toISOString().split('T')[0],
             time: `${date.getHours()}:${date.getMinutes()}`
           });
-          console.log("From show.js - after onload: page.data ", page.data)
+          // console.log("From show.js - onshow: meeting date", res.data.my_booking.date_and_time)
+          page.setData({
+            dayRemaining: page.dayRemaining()
+          })
+          // console.log("From show.js - after onload: page.data ", page.data)
         } else {
           console.log("From show.js: status code is", res.statusCode)
         }
@@ -63,8 +80,8 @@ Page({
     console.log("From show.js - submitBooking: e", e)
     // console.log(this.data.date)
     // console.log(this.data.time)
-    const dateAndTime = Date(`${this.data.date} ${this.data.time}`)
-    // console.log(dateAndTime)
+    const dateAndTime = new Date(`${this.data.date} ${this.data.time}`)
+    console.log(dateAndTime)
     let page = this
     wx.request({
       url: `${app.globalData.baseURL}/pets/${this.data.pet.id}/bookings`,
@@ -79,14 +96,19 @@ Page({
           console.log("From show.js - booking submit successfully!")
           console.log("From show.js : res.data", res.data)
           const booking = res.data.booking;
-          wx.navigateTo({
-            url: `/pages/booking/show?id=${booking.id}`,
+          // wx.navigateTo({
+          //   url: `/pages/booking/show?id=${booking.id}`,
+          // })
+          console.log(page)
+          // page.onLoad()
+          wx.redirectTo({
+            url: `/pages/pets/show?id=${page.options.id}`,
           })
           // console.log("test date: ", page.data.date)
         } else {
           console.log("From show.js: status code is", res.statusCode)
           console.log("From show.js: error message", res.data.errors)
-          const bookingId = res.data.booking.id
+          // const bookingId = res.data.booking.id
           wx.showModal({
             title: 'Error!',
             content: res.data.errors.join(', '),
@@ -153,6 +175,12 @@ Page({
     })
   },
 
+  dayRemaining() {
+    const page = this;
+    const meetingTime = new Date(page.data.booking.date_and_time)
+    const now = new Date()
+    return Math.ceil((meetingTime - now) / 86400000);
+  },
   /**
    * Lifecycle function--Called when page is initially rendered
    */
