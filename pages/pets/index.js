@@ -173,7 +173,7 @@ Page({
    */
   onReady() {
     this.setData({
-      loadingHidden: true,
+      // loadingHidden: true,
     })
   },
 
@@ -205,7 +205,9 @@ Page({
       success(res) {
         console.log("From index.js onshow: res.data",res.data)
         page.setData({
-          pets: res.data
+          pets: res.data,
+          loadingHidden: true,
+
         })
       }
     })
