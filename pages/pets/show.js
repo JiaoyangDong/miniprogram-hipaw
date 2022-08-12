@@ -36,10 +36,12 @@ Page({
           console.log("From show.js - onshow: pet's user_id", res.data.pet.user_id)
          
           const pet = res.data.pet;
-          console.log("From show.js - onshow: create date", pet.created_at)
+          // console.log("From show.js - onshow: create date", pet.created_at)
           const booking = res.data.my_booking;
           
           const date = new Date()
+          // const date = Date(booking.date_and_time)
+          // console.log("From show.js - onshow: meetingdate", booking.date_and_time)
           page.setData({
             pet: pet,
             isCreater: app.globalData.user.id === pet.user_id,
@@ -50,7 +52,10 @@ Page({
             time: `${date.getHours()}:${date.getMinutes()}`
           });
           // console.log("From show.js - onshow: meeting date", res.data.my_booking.date_and_time)
-          console.log("From show.js - after onload: page.data ", page.data)
+          page.setData({
+            dayRemaining: page.dayRemaining()
+          })
+          // console.log("From show.js - after onload: page.data ", page.data)
         } else {
           console.log("From show.js: status code is", res.statusCode)
         }
@@ -75,8 +80,8 @@ Page({
     console.log("From show.js - submitBooking: e", e)
     // console.log(this.data.date)
     // console.log(this.data.time)
-    const dateAndTime = Date(`${this.data.date} ${this.data.time}`)
-    // console.log(dateAndTime)
+    const dateAndTime = new Date(`${this.data.date} ${this.data.time}`)
+    console.log(dateAndTime)
     let page = this
     wx.request({
       url: `${app.globalData.baseURL}/pets/${this.data.pet.id}/bookings`,
@@ -170,6 +175,12 @@ Page({
     })
   },
 
+  dayRemaining() {
+    const page = this;
+    const meetingTime = new Date(page.data.booking.date_and_time)
+    const now = new Date()
+    return Math.ceil((meetingTime - now) / 86400000);
+  },
   /**
    * Lifecycle function--Called when page is initially rendered
    */
