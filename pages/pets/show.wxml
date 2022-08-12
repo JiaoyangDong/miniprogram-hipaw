@@ -8,11 +8,12 @@
     <view class="filter"></view>
     <image class="pet-avt" mode="aspectFill" src="{{pet.image_url}}"></image>
   </view>
-  <view class="pet-info">
-    <view> 📍 {{pet.district}}</view>
-    <view>Age: {{pet.age}}</view>
-    <view>{{pet.description}}</view>
-    <view>Fur type: {{pet.fur_type}}</view>
+  <view class="pet-info" style="margin: auto 30rpx; border: transparent; text-align: start; padding-left: 10rpx;">
+    <view style="padding-bottom: 8rpx;"> I live in {{pet.district}} district</view>
+    <view style="padding-bottom: 8rpx;">I am : {{pet.age}} old</view>
+    <view style="padding-bottom: 8rpx;">I am a : {{pet.sex}} {{pet.species}}</view>
+    <view style="padding-bottom: 8rpx;"> I wear {{pet.fur_type}} coat</view>
+    <view style="padding-bottom: 8rpx;">More about me: {{pet.description}}</view>
   </view>
 
   <view class="sticky-bottom">
@@ -31,7 +32,6 @@
       </text>
     </view>
   </view>
-
 </view>
 
 

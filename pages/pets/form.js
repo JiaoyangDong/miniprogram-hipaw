@@ -1,98 +1,109 @@
-// pages/pets/form.js
   const app = getApp()
 Page({
-
-  /**
-   * Page initial data
-   */
   data: {
-    formData: {}
+    districts: ['Huangpu', 'Xuhui', 'Changning', 'Jingan', 'Putuo', 'Hongkou', 'Yangpu', 'Baoshan', 'Minhang', 'Jiading', 'Pudong', 'Songjiang', 'Jinshan', 'Qingpu', 'Fengxian', 'Chongming'],
+    sexes: ['male', 'female'],
+    fur_types: ['long', 'short', 'hairless'],
+    district: '',
+    sex: '',
+    fur_type: '',
+    src: '',
+    formData: {},
+    
   },
-
-  /**
-   * Lifecycle function--Called when page load
-   */
   onLoad(options) {
-
   },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
   onReady() {
-
   },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
   onShow: function () {
     console.log("form onshow")
-    this.resetForm()
     const page = this
+    this.resetForm()
     const id = wx.getStorageSync('editedId')
-
-    console.log(id)
     if (id) {
       console.log('id found -> update')
       wx.request({
         header: app.globalData.header,
         url: `${app.globalData.baseURL}/pets/${id}`,
         success(res) {
+          let data = page.data
           page.setData({
+            districtIndex: data.districts.findIndex(el => (el === res.data.district)),
+            sexIndex: data.sexes.findIndex(el => (el === res.data.sex)),
+            furTypeIndex: data.fur_types.findIndex(el => (el === res.data.fur_type)),
             formData: res.data,
             editedId: id
           })
           wx.removeStorageSync('editedId')
         }
+
       })
     }
   },
-
   resetForm() {
     this.setData({formData: {}})
   },
-  /**
-   * Lifecycle function--Called when page hide
-   */
+  bindPickerChange: function (e) {
+    console.log(e)
+    let { formData } = this.data
+    const { field } = e.currentTarget.dataset
+    if (field == 'district') {
+      formData.district = this.data.districts[e.detail.value]
+      this.setData({ formData, districtIndex: e.detail.value })
+    } else if (field === 'sex') {
+      formData.sex = this.data.sexes[e.detail.value]
+      this.setData({formData, sexIndex: e.detail.value})
+    } else {
+      formData.fur_type = this.data.fur_types[e.detail.value]
+      this.setData({ formData, furTypeIndex: e.detail.value})
+    }
+  },
+  listenerBtnChooseImage: function () {
+    var page = this
+    // Upload an image
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        console.log(res)
+        console.log('img successfully uploaded')
+        page.setData({
+          src: res.tempFilePaths
+        })
+        // Get image info
+        wx.getImageInfo({
+          src: res.tempFilePaths[0],
+          success: function (res) {
+            console.log(res.width)
+            console.log(res.height)
+            console.log(res.path)
+          }
+        })
+       }
+     })
+   },
   onHide() {
-
   },
 
-  /**
-   * Lifecycle function--Called when page unload
-   */
   onUnload() {
-
   },
 
-  /**
-   * Page event handler function--Called when user drop down
-   */
   onPullDownRefresh() {
-
   },
 
-  /**
-   * Called when page reach bottom
-   */
   onReachBottom() {
-
   },
 
-  /**
-   * Called when user click on the top right corner to share
-   */
   onShareAppMessage() {
-
   }, 
 
   save(e) {
-    console.log(e)
-    const pet = e.detail.value
-    console.log(pet)
+    console.log('from save button --->',e)
     const page = this
-    
+    let pet = {...e.detail.value, ...this.data.formData}
+    console.log(pet)
+    this.setData({pet})
     if (this.data.editedId !== undefined && this.data.editedId !== null) {
       wx.request({
         header: app.globalData.header,
@@ -133,5 +144,6 @@ Page({
         }
       })
     }
-  }
+  },
+
 })

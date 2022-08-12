@@ -34,7 +34,6 @@ page {
 
 .picture {
   position: relative;
-
 }
 
 .icon {
@@ -52,23 +51,36 @@ page {
   margin-left: 20rpx;
   margin-right: 20rpx;
 }
- .pet-info {
-  margin-left: 40rpx;
-  margin-bottom: 70rpx;
- }
 
+.pet-info {
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  font-size: 35rpx;
+ }
+.pet-info text {
+  font-size: 35rpx;
+}
+.info-title {
+  margin-bottom: 20rpx;
+  font-size: 50rpx;
+  font-weight: bold;
+  /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+}
+.info{
+  color: grey;
+}
  .h1 {
    font-size: 16pt;
   }
 
   .edit-card {
-    background-color: blue;
+    /* background-color: blue; */
     display: flex;
     justify-content: space-between;
-    height: 300rpx;
+    /* height: 300rpx; */
   }
   .meet-card {
-    background-color: red;
+    background-color: transparent;
     height: 250rpx;
   }
   .meet-btn {
@@ -76,6 +88,7 @@ page {
     color: white;
     margin-bottom: 50rpx;
   }
+  
   .edit-btn {
     color: white;
     background-color: #404040;
@@ -87,12 +100,17 @@ page {
     border: 1px solid #404040;
     margin-bottom: 15rpx;
   }
-  .booking-card {
-    background-color: green;
-    border: black;
-    height: 300rpx;
-  }
 
+  .booking-card {
+    background-color: #404040;
+    padding-right: 20rpx;
+    padding-left: 20rpx;
+    color:seashell;
+    font-size: 35rpx;
+    height: 150rpx;
+    border-radius: 4px;
+    box-shadow: 0 0 15rpx rgba(0, 0, 0, 0.4);
+  }
   .filter {
     position: absolute;
     background-color: black;

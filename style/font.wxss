@@ -1,14 +1,19 @@
 @font-face {
   font-family: Montserrat;
-  src: url(/fonts/Montserrat-Regular.ttf);
+  src: url(https://res.cloudinary.com/dudzolqdz/raw/upload/v1660272026/fonts/Montserrat-Regular_xejzug.ttf);
+  font-weight: 400;
 }
 
 @font-face {
-  font-family: MontserratBold;
-  src: url(/fonts/Montserrat-Bold.ttf);
+  font-family: Montserrat;
+  src: url(https://res.cloudinary.com/dudzolqdz/raw/upload/v1660272025/fonts/Montserrat-BoldItalic_vebo08.ttf);
+  font-weight: 700;
+  font-style: italic;
 }
 
 @font-face {
-  font-family: MontserratBoldItalic;
-  src: url(/fonts/Montserrat-BoldItalic.ttf);
+  font-family: Montserrat;
+  src: url(https://res.cloudinary.com/dudzolqdz/raw/upload/v1660272023/fonts/Montserrat-Bold_al5n1x.ttf);
+  font-weight: 700;
+  
 }
