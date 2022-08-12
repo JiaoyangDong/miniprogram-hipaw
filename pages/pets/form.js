@@ -9,6 +9,7 @@ Page({
     fur_type: '',
     src: '',
     formData: {},
+    
   },
   onLoad(options) {
   },
@@ -16,8 +17,8 @@ Page({
   },
   onShow: function () {
     console.log("form onshow")
-    this.resetForm()
     const page = this
+    this.resetForm()
     const id = wx.getStorageSync('editedId')
     if (id) {
       console.log('id found -> update')
@@ -35,6 +36,7 @@ Page({
           })
           wx.removeStorageSync('editedId')
         }
+
       })
     }
   },
