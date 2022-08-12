@@ -20,7 +20,8 @@
 
 .my-pets-cards-box{
   white-space: nowrap;
-  height: 45rpx;
+  height: 50rpx;
+  padding-left: 5%; padding-right: 5%; font-size: 40rpx; font-weight: 700;
 }
 
 .my-pet-card {

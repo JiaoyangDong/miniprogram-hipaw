@@ -51,7 +51,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  word-wrap: normal
+  word-wrap: normal;
 }
 .wux-filterbar__item::after {
   content: " ";
@@ -217,12 +217,11 @@
   position: relative;
   height: 64rpx;
   width: 33.3333%;
-  color: #404040;
+  color: #ffffff;
   margin-top: 20rpx;
   float: left;
   box-sizing: border-box;
-  padding-left: 10rpx;
-  padding-right: 10rpx
+  padding: 0 10rpx;
 }
 .wux-filterbar__btn,
 .wux-filterbar__check,

@@ -11,7 +11,7 @@
 
 
 <!-- <block wx:else="{{pets}}"> -->
-<view style="padding-left: 5%; padding-right: 5%; font-size: 40rpx; font-weight: 700;">My Pets</view>
+<view class="my-pets-cards-box">My Pets</view>
 <swiper> 
   <swiper-item style="display: flex; justify-content: center;"
                 wx:for="{{pets}}" wx:for-item="pet" wx:key="*this" bindtap="goToPet" data-id="{{pet.id}}">

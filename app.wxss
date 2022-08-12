@@ -1,7 +1,9 @@
 /**app.wxss**/
+@import "/style/font.wxss";
 /* <!-- Coolors Palette Widget --> */
       /* <script src="https://coolors.co/palette-widget/widget.js"></script> */
       /* <script data-id="09693098650396839">new CoolorsPaletteWidget("09693098650396839", ["f79256","fbd1a2","7dcfb6","00b2ca","1d4e89"]); </script> */
+
 
 .container {
   height: 100%;
