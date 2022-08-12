@@ -35,8 +35,8 @@
   <view class="pet-title-and-scroll-v">
     <view class="scroll-title">My Pets</view>
     <scroll-view class="pet-scroll-view" scroll-x="true" style="width: 100%; white-space: nowrap;">
-      <block wx:for="{{pets}}" wx:for-item="pet" wx:key="*this" data-id="{{pet.id}}">
-        <view class="pet-card" bindtap="goToPet">
+      <block wx:for="{{pets}}" wx:for-item="pet" wx:key="*this" >
+        <view class="pet-card" data-id="{{pet.id}}" bindtap="goToPet">
           <view class="filter"></view>
           <image mode="aspectFill" class="pet-image" src="{{pet.image_url}}"></image>
           <!-- <view class="pet-info"> -->
@@ -71,7 +71,7 @@
     <view class="scroll-title">My Bookings</view>
     <scroll-view class="pet-scroll-view" scroll-x="true" style="width: 100%; white-space: nowrap;">
       <block wx:for="{{booked_pets}}" wx:for-item="pet" wx:key="*this" data-id="{{pet.id}}">
-        <view class="pet-card" bindtap="goToPet">
+        <view class="pet-card" data-id="{{pet.id}}" bindtap="goToPet">
           <view class="filter"></view>
           <image mode="aspectFill" class="pet-image" src="{{pet.image_url}}"></image>
           <view class="pet-info">
