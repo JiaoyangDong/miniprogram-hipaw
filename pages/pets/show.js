@@ -49,7 +49,7 @@ Page({
             date: date.toISOString().split('T')[0],
             time: `${date.getHours()}:${date.getMinutes()}`
           });
-          console.log("From show.js - onshow: meeting date", res.data.my_booking.date_and_time)
+          // console.log("From show.js - onshow: meeting date", res.data.my_booking.date_and_time)
           console.log("From show.js - after onload: page.data ", page.data)
         } else {
           console.log("From show.js: status code is", res.statusCode)
