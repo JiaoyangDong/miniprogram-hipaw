@@ -113,7 +113,7 @@ page {
   position:fixed; 
   width:80vw; 
   left: 10%;
-  height:50vh; 
+  height:35vh; 
   top:10%; 
   /* text-align:center; */
   background-color: white ; 
@@ -127,6 +127,8 @@ page {
   padding: 24rpx 20rpx;
   text-align: center;
   margin-bottom: 20rpx;
+  font-family: Montserrat;
+  margin-top: 16rpx;
 }
 
 picker{
@@ -137,4 +139,7 @@ picker{
   padding: 10rpx;
   font-size: 36rpx;
   margin: 16rpx;
+  background-color: rgba(0, 181, 163, .3);
+  margin: 0 60rpx;
+  border-radius: 10rpx;
 }
