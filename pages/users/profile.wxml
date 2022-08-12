@@ -39,12 +39,13 @@
         <view class="pet-card" data-id="{{pet.id}}" bindtap="goToPet">
           <view class="filter"></view>
           <image mode="aspectFill" class="pet-image" src="{{pet.image_url}}"></image>
-          <view class="pet-info">
+          <!-- <view class="pet-info"> -->
             <view class="pet-name">{{pet.name}}</view>
             <!-- <view class="pet-sex"><image class="pet-sex-icon" src="{{ pet.sex == 'male' ? '/images/boy.png' : '/images/girl.png'}}"></image></view> -->
             <view class="pet-posted-at">Posted {{pet.created_at}}</view>
-          </view>
+          <!-- </view> -->
         </view>
+        <!-- <view class="pet-posted-at">Posted {{pet.created_at}}</view> -->
       </block>
     </scroll-view>
   </view>
@@ -78,7 +79,7 @@
             <view class="pet-sex"><image class="pet-sex-icon" src="{{ pet.sex == 'male' ? '/images/boy.png' : '/images/girl.png'}}"></image></view>
           </view>
         </view>
-            <view class="pet-posted-at">Posted {{pet.created_at}}</view>
+        <view class="pet-posted-at">Posted {{pet.created_at}}</view>
       </block>
     </scroll-view>
   </view>
