@@ -120,9 +120,9 @@
 
 .pet-posted-at {
   bottom: 10rpx;
-  left: 10rpx;
+  left: 6rpx;
   font-size: 18rpx;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .pet-sex-icon {
