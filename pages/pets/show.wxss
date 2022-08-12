@@ -51,18 +51,37 @@ page {
   margin-left: 20rpx;
   margin-right: 20rpx;
 }
- .pet-info {
-  margin-left: 40rpx;
-  margin-bottom: 70rpx;
- }
 
+.pet-info {
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  font-size: 35rpx;
+ }
+.pet-info text {
+  font-size: 35rpx;
+}
+.info-title {
+  margin-bottom: 20rpx;
+  font-size: 50rpx;
+  font-weight: bold;
+  /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+}
+.info{
+  color: grey;
+}
  .h1 {
    font-size: 16pt;
   }
 
   .edit-card {
+    /* background-color: blue; */
     display: flex;
     justify-content: space-between;
+    /* height: 300rpx; */
+  }
+  .meet-card {
+    background-color: transparent;
+    height: 250rpx;
   }
   .meet-btn {
     background-color: #00B5A3;
@@ -81,17 +100,17 @@ page {
     border: 1px solid #404040;
     margin-bottom: 15rpx;
   }
-  .og-button {
-    background-color:#F79256;
-    color: #5e2c0f;
-    margin-top: 60rpx;
-    /* bottom: 580rpx; */
-    /* right: 10rpx; */
-    /* position: fixed; */
-    /* display: inline-block; */
-    font-size: 10rpt;
-  }
 
+  .booking-card {
+    background-color: #404040;
+    padding-right: 20rpx;
+    padding-left: 20rpx;
+    color:seashell;
+    font-size: 35rpx;
+    height: 150rpx;
+    border-radius: 4px;
+    box-shadow: 0 0 15rpx rgba(0, 0, 0, 0.4);
+  }
   .filter {
     position: absolute;
     background-color: black;
