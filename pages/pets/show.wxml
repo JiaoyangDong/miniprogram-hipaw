@@ -46,7 +46,7 @@
 </view>
 <view class="pop-up-window" 
   wx:if="{{showBookingModal}}">
-  <view class="header" >Book a time to meet {{pet.name}}</view>
+  <view class="header" >Book a time to meet {{pet.name}}!</view>
   <!-- pick date -->
   <picker 
     mode="date" 
@@ -54,7 +54,7 @@
     start="{{date}}" 
     end="2030-12-31" 
     bindchange="bindDateChange">
-    <view class="picker" style="background-color: red;">
+    <view class="picker">
       Date: {{date}}
     </view>
   </picker>
@@ -62,7 +62,7 @@
   <picker mode="time" value="{{time}}" 
     start="09:01" end="21:01" 
     bindchange="bindTimeChange" >
-    <view class="picker" style="background-color: red;">
+    <view class="picker">
       Time: {{time}}
     </view>
   </picker>
