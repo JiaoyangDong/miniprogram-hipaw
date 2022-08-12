@@ -34,7 +34,6 @@ page {
 
 .picture {
   position: relative;
-
 }
 
 .icon {
@@ -70,6 +69,7 @@ page {
     color: white;
     margin-bottom: 50rpx;
   }
+  
   .edit-btn {
     color: white;
     background-color: #404040;
@@ -80,6 +80,16 @@ page {
     background-color: transparent;
     border: 1px solid #404040;
     margin-bottom: 15rpx;
+  }
+  .og-button {
+    background-color:#F79256;
+    color: #5e2c0f;
+    margin-top: 60rpx;
+    /* bottom: 580rpx; */
+    /* right: 10rpx; */
+    /* position: fixed; */
+    /* display: inline-block; */
+    font-size: 10rpt;
   }
 
   .filter {
