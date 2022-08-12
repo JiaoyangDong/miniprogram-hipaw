@@ -1,5 +1,39 @@
 <!--pages/pets/index.wxml-->
 <!-- <view class="filter-banner">filter stuff goes here</view> -->
+<swiper class="event-swiper" autoplay="true" interval="4000" circular="true" indicator-dots="true" indicator-color="rgba(0, 181, 163, 1)" indicator-active-color="rgba(0, 181, 163, .5)"> 
+  <block wx:for="{{events}}" wx:key="*this" wx:for-item="event">
+    <swiper-item class="event-card" style="background-image: url({{event.backgroundurl}})">
+      <view class="event-name">{{event.name}}</view>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="loading-screen" hidden="{{loadingHidden}}">
+  <view class="loading">
+    <view class="sq1"></view>
+    <view class="sq2"></view>
+    <view class="sq3"></view>
+    <view class="sq4"></view>
+  </view>
+</view>
+
+<!-- <view class="filter-bar">
+  <block wx:for="{{filterbaritems}}" wx:for-item="item">
+    <view class="filter-bar-item" bindtap="showMenu">
+      <view class="filter-bar-item-name">{{item.title}}</view>
+    </view>
+  </block>
+</view> -->
+
+<wux-filterbar
+      items="{{ items }}"
+      bind:change="onChange"
+      bind:open="onOpen"
+      bind:close="onClose"
+      confirmText="Confirm"
+      cancelText="Cancel"
+    />
+
 <view class="cards-box">
   <block wx:if="{{!pets.length}}">
     <view class="no-pets-message">Oops, there aren't any pets listed yet!</view>

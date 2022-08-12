@@ -7,17 +7,13 @@ Page({
    * Page initial data
    */
   data: {
-    loadingHidden: false,
+    // loadingHidden: false,
   },
-
   /**
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-    
-    // wx.showLoading({
-    //   title: 'page loading..',
-    // });
+  
   },
   startPageX: 0,
   currentView: DEFAULT_PAGE,
@@ -50,15 +46,9 @@ Page({
    * Lifecycle function--Called when page is initially rendered
    */
   onReady() {
-    // wx.showToast({
-    //   title: 'page load sucess!',
-    //   icon: 'success',
-    //   duration: 2000
+    // this.setData({
+    //   loadingHidden: true,
     // })
-    // wx.hideToast();
-    this.setData({
-      loadingHidden: true,
-    })
   },
 
   /**
@@ -86,10 +76,12 @@ Page({
         console.log({res})
         const pets = res.data
         page.setData({
-          pets: pets.slice(0,5)
+          pets: pets.slice(0,5),
+          cats: pets.filter(e => e.species=="cat")
           // pets: pets
         })
-        console.log(page.data.pets)
+        // console.log(page.data.pets)
+        // console.log(page.data.cats)
       }
     })
   },

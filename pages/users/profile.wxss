@@ -1,7 +1,17 @@
 /* pages/users/profile.wxss */
-.swiper-item {
-  height: 200rpx;
+
+.swiper-card {
+  height: 300rpx;
   width: 90%;
+  border-radius: 10rpx;
+  overflow: hidden;
+  display: flex;
+}
+
+.swiper-card image {
+  height: 100%;
+  /* width: 120px; */
+  object-fit: cover;
 }
 
 .user-box {

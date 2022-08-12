@@ -1,8 +1,13 @@
 /* pages/pets/show.wxss */
-
-.main {
-  align-items: center;
+page {
+  height: 100vh;
+  background-color: white;
 }
+
+.pageContainer {
+  overflow-y: scroll;
+}
+
 .favorite-icon {
   position: absolute;
   top: 30rpx;
@@ -37,25 +42,43 @@
 }
 
 .sticky-bottom {
-  position: fixed;
-  bottom: 80rpx;
-  background-color: white;
-  height: 100rpx;
-  display: flex;
+  position: sticky;
+  bottom: 0rpx;
+  padding: 30rpx;
+  background-color: transparent;
+  height: 250rpx;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
 }
  .pet-info {
-  color:#5e2c0f;
+  margin-left: 40rpx;
+  margin-bottom: 70rpx;
  }
 
  .h1 {
    font-size: 16pt;
   }
 
-  .edit-btn {
-    margin-bottom: 15rpx;
+  .edit-card {
+    display: flex;
+    justify-content: space-between;
+  }
+  .meet-btn {
+    background-color: #00B5A3;
+    color: white;
+    margin-bottom: 50rpx;
   }
   
+  .edit-btn {
+    color: white;
+    background-color: #404040;
+    margin-bottom: 15rpx;
+  }
   .delete-btn {
+    color: #404040;
+    background-color: transparent;
+    border: 1px solid #404040;
     margin-bottom: 15rpx;
   }
   .og-button {
@@ -79,4 +102,39 @@
     border-radius: 5px;
     z-index: 1;
   }
-  
+
+/* booking model */
+.background {
+  background-color: rgba(0, 0, 0, 0.6); width:100vw; height: 100vh; position: fixed; top: 0; z-index: 90;
+}
+
+.pop-up-window{
+  z-index: 99; 
+  position:fixed; 
+  width:80vw; 
+  left: 10%;
+  height:50vh; 
+  top:10%; 
+  /* text-align:center; */
+  background-color: white ; 
+  border-radius: 10rpx;
+  box-shadow: 2rpx, 2rpx, 5rpx, grey; 
+  overflow: hidden;
+}
+
+.header{
+  font-size: 40rpx;
+  padding: 24rpx 20rpx;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+picker{
+  margin-bottom: 40rpx;
+}
+
+.picker{
+  padding: 10rpx;
+  font-size: 36rpx;
+  margin: 16rpx;
+}

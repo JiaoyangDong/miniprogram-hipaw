@@ -1,6 +1,5 @@
 <!--pages/pets/show.wxml-->
-
-<view class="main">
+<view class="pageContainer">
   <view class="picture">
     <view class="favorite-icon">
       <image class="icon" src="/images/aixin-2.png"></image>
@@ -21,5 +20,53 @@
   <view class="sticky-bottom">
     <button bindtap="edit" class="edit-btn" type="default" plain="true">edit</button>
     <button bindtap="delete" class="delete-btn" type="warn" plain="true">delete</button>
+<!--
+  <view class="sticky-bottom">
+    <!-- <view class="meet-card"> -->
+    <view class="meet-card" wx:if="{{isAdopter}}">
+      <button style="width:42vw" class="meet-btn" bindtap="showBookingWindow">Meet & Greet</button>
+    </view>
+    <!-- <view class="edit-card"> -->
+    <view class="edit-card" wx:else>
+      <button style="width:40vw" bindtap="edit" class="edit-btn">edit</button>
+      <button style="width:40vw" bindtap="delete" class="delete-btn">delete</button>
+    </view>
+-->
   </view>
 </view>
+
+
+<!-- Booking model -->
+<!-- <booking 
+  wx:if="{{showBookingModal}}" 
+  bind:goback="removeBookingWindow" 
+  text="Choose a time to meet with {{pet.name}}"/> -->
+<view class="background" 
+  bindtap="removeBookingWindow" 
+  wx:if="{{showBookingModal}}">
+</view>
+<view class="pop-up-window" 
+  wx:if="{{showBookingModal}}">
+  <view class="header" >Book a time to meet {{pet.name}}</view>
+  <!-- pick date -->
+  <picker 
+    mode="date" 
+    value="{{date}}" 
+    start="{{date}}" 
+    end="2030-12-31" 
+    bindchange="bindDateChange">
+    <view class="picker" style="background-color: red;">
+      Date: {{date}}
+    </view>
+  </picker>
+  <!-- pick timne -->
+  <picker mode="time" value="{{time}}" 
+    start="09:01" end="21:01" 
+    bindchange="bindTimeChange" >
+    <view class="picker" style="background-color: red;">
+      Time: {{time}}
+    </view>
+  </picker>
+  <button class="pri-btn" style="margin-top: 60rpx;" bindtap="submitBooking">Send</button>
+</view>
+
