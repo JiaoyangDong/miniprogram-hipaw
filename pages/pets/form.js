@@ -4,12 +4,14 @@ Page({
     districts: ['Huangpu', 'Xuhui', 'Changning', 'Jingan', 'Putuo', 'Hongkou', 'Yangpu', 'Baoshan', 'Minhang', 'Jiading', 'Pudong', 'Songjiang', 'Jinshan', 'Qingpu', 'Fengxian', 'Chongming'],
     sexes: ['male', 'female'],
     fur_types: ['long', 'short', 'hairless'],
+    speciess: ['dog', 'cat', 'other'],
     district: '',
     sex: '',
     fur_type: '',
-    src: '',
+    species: '',
+    src: [],
     formData: {},
-    
+    resetForm: true
   },
   onLoad(options) {
   },
@@ -18,7 +20,7 @@ Page({
   onShow: function () {
     console.log("form onshow")
     const page = this
-    this.resetForm()
+    if (page.data.resetForm) this.resetForm();
     const id = wx.getStorageSync('editedId')
     if (id) {
       console.log('id found -> update')
@@ -31,6 +33,7 @@ Page({
             districtIndex: data.districts.findIndex(el => (el === res.data.district)),
             sexIndex: data.sexes.findIndex(el => (el === res.data.sex)),
             furTypeIndex: data.fur_types.findIndex(el => (el === res.data.fur_type)),
+            speciesIndex: data.speciess.findIndex(el => (el === res.data.species)),
             formData: res.data,
             editedId: id
           })
@@ -39,6 +42,12 @@ Page({
 
       })
     }
+  },
+  setInputData(e) {
+    console.log(e)
+    let { formData } = this.data
+    formData[e.currentTarget.dataset.field] = e.detail.value
+    this.setData({formData})
   },
   resetForm() {
     this.setData({formData: {}})
@@ -53,35 +62,29 @@ Page({
     } else if (field === 'sex') {
       formData.sex = this.data.sexes[e.detail.value]
       this.setData({formData, sexIndex: e.detail.value})
-    } else {
+    } else if (field === 'fur_type') {
       formData.fur_type = this.data.fur_types[e.detail.value]
       this.setData({ formData, furTypeIndex: e.detail.value})
+    } else {
+      formData.species = this.data.speciess[e.detail.value]
+      this.setData({ formData, speciesIndex: e.detail.value})
     }
   },
   listenerBtnChooseImage: function () {
-    var page = this
+    const page = this
+    page.setData({resetForm: false})
     // Upload an image
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success: function (res) {
-        console.log(res)
-        console.log('img successfully uploaded')
+        console.log('img successfully uploaded', res)
         page.setData({
           src: res.tempFilePaths
         })
-        // Get image info
-        wx.getImageInfo({
-          src: res.tempFilePaths[0],
-          success: function (res) {
-            console.log(res.width)
-            console.log(res.height)
-            console.log(res.path)
-          }
-        })
-       }
-     })
+      }
+    })
    },
   onHide() {
   },
@@ -101,7 +104,7 @@ Page({
   save(e) {
     console.log('from save button --->',e)
     const page = this
-    let pet = {...e.detail.value, ...this.data.formData}
+    let pet = this.data.formData
     console.log(pet)
     this.setData({pet})
     if (this.data.editedId !== undefined && this.data.editedId !== null) {
@@ -112,13 +115,13 @@ Page({
         data: {pet: pet},
         success(res) {
           console.log('update success?', res)
+          page.setData({resetForm: true})
           wx.switchTab({
             url: '/pages/pets/index',
           })
         }
       })
     } else {
-
       wx.request({
         header: app.globalData.header,
         url: `${app.globalData.baseURL}/pets`,
@@ -134,8 +137,12 @@ Page({
               confirmText: 'OK'
             })
           } else {
-            wx.switchTab({
-              url: '/pages/pets/index',
+            // call the upload
+            const id = res.data.pet.id
+            page.setData({resetForm: true})
+            page.upload(id)
+              wx.switchTab({
+                url: '/pages/pets/index'
             })
           }
         },
@@ -145,5 +152,17 @@ Page({
       })
     }
   },
-
+  upload(id) {
+    const page = this
+    wx.uploadFile({
+      url: `${app.globalData.baseURL}/pets/${id}/upload`,
+      filePath: page.data.src[0],
+      header: app.globalData.header,
+      name: 'image',
+      success (res){
+        page.setData({resetForm: true})
+        console.log(res)
+      }
+    })
+  }
 })

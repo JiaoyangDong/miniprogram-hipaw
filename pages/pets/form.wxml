@@ -11,15 +11,15 @@
     </block>
 
       <view class="form-item">my name
-        <input name="name" value="{{formData.name}}"/>
+        <input bindinput="setInputData" data-field="name" name="name" value="{{formData.name}}"/>
       </view>
       
       <view class="form-item">my age
-        <input name="age" value="{{formData.age}}"/>
+        <input bindinput="setInputData" data-field="age" name="age" value="{{formData.age}}"/>
       </view>
 
       <view class="form-item">more about me
-        <textarea type="text" style="padding: 25rpx" name="description" value="{{formData.description}}"/>  
+        <textarea bindinput="setInputData" data-field="description" type="text" style="padding: 25rpx" name="description" value="{{formData.description}}"/>  
       </view>
 
       <view class="form-item">
@@ -30,10 +30,15 @@
         </picker>
       </view>
 
-      <view class="form-item">
+      <view class="form-item" style="display: flex;" >
         <picker bindchange="bindPickerChange" data-field="sex" value="{{sexIndex}}" range="{{sexes}}">
           <view class="picker">
-            I am a ：{{formData.sex}}
+            I am a ：{{formData.sex}} 
+          </view>
+        </picker>
+        <picker bindchange="bindPickerChange" data-field="species" value="{{speciesIndex}}" range="{{speciess}}">
+          <view class="picker" style="margin-top: 5rpx;">
+           {{formData.species}} .
           </view>
         </picker>
       </view>
