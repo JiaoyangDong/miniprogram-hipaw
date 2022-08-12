@@ -38,7 +38,7 @@ Page({
         if (res.statusCode === 200) {
           console.log("From booking/show.js : res.data", res.data)
           page.setData({
-            booking: res.data.booking,
+            booking: res.data.my_booking,
             pet: res.data.pet
           })
         // console.log("From booking/show.js - after onload : page.data", page.data)
