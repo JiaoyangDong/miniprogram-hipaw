@@ -11,8 +11,8 @@
   </view>
   <view class="pet-info" style="margin: auto 30rpx; border: transparent; text-align: start; padding-left: 10rpx;">
     <view style="padding-bottom: 8rpx;"> I live in {{pet.district}} district</view>
-    <view style="padding-bottom: 8rpx;">My age : {{pet.age}}</view>
-    <view style="padding-bottom: 8rpx;">My gender : {{pet.sex}}</view>
+    <view style="padding-bottom: 8rpx;">I am : {{pet.age}} old</view>
+    <view style="padding-bottom: 8rpx;">I am a : {{pet.sex}} {{pet.species}}</view>
     <view style="padding-bottom: 8rpx;"> I wear {{pet.fur_type}} coat</view>
     <view style="padding-bottom: 8rpx;">More about me: {{pet.description}}</view>
   </view>
