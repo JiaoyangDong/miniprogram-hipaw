@@ -1,2 +1,13 @@
 <!--pages/booking/show.wxml-->
-<text>pages/booking/show.wxml</text>
+<view>
+  You've booking to see {{pet.name}} succesfully!
+</view>
+ 
+<view>
+  {{booking.date_and_time}}
+</view>
+<view>
+  Meeting time is in xx days.
+</view>
+
+<button> See {{pet.name}}'s profile</button>

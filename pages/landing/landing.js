@@ -50,13 +50,9 @@ Page({
    * Lifecycle function--Called when page is initially rendered
    */
   onReady() {
-    this.setData({
-      loadingHidden: true,
-    })
-    // this.animation = wx.createAnimation({
-    //   duration: 1000
+    // this.setData({
+    //   loadingHidden: true,
     // })
-
   },
   // translate: function () {
   //   this.animation.translate(250, -1).step()
