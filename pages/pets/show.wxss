@@ -113,7 +113,7 @@ page {
   position:fixed; 
   width:80vw; 
   left: 10%;
-  height:35vh; 
+  height:40vh; 
   top:10%; 
   /* text-align:center; */
   background-color: white ; 
