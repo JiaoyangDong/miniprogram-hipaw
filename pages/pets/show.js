@@ -9,8 +9,8 @@ Page({
     date: "",
     time: "",
     showBookingModal: false,
-    booking: {}
-    isAdopter: false
+    booking: {},
+    // isAdopter: false,
     // isCreater: false,
     // isBooker: false
   },
@@ -31,17 +31,25 @@ Page({
       success(res) {
         console.log("From show.js - onshow: res",res)
         if (res.statusCode === 200) {
-          console.log("From show.js - onshow: booking", res.data.my_booking)
+          console.log("From show.js - onshow: booking", res.data.my_booking);
+          // console.log("From show.js - onshow: booking's user_id",res.data.my_booking.user_id);
+          console.log("From show.js - onshow: pet's user_id", res.data.pet.user_id)
+         
           const pet = res.data.pet;
+          console.log("From show.js - onshow: create date", pet.created_at)
+          const booking = res.data.my_booking;
+          
           const date = new Date()
           page.setData({
             pet: pet,
-            isAdopter: app.globalData.user.id !== pet.user_id,
-            // isCreater: app.globalData.user.id === pet.user_id,
-            // isBooker: app.globalData.user.id === booking.user_id,
+            isCreater: app.globalData.user.id === pet.user_id,
+            // isAdopter: app.globalData.user.id !== pet.user_id,
+            isBooker: booking, 
+            booking: booking,
             date: date.toISOString().split('T')[0],
             time: `${date.getHours()}:${date.getMinutes()}`
           });
+          console.log("From show.js - onshow: meeting date", res.data.my_booking.date_and_time)
           console.log("From show.js - after onload: page.data ", page.data)
         } else {
           console.log("From show.js: status code is", res.statusCode)
