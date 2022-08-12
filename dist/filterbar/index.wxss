@@ -87,7 +87,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  word-wrap: normal
+  word-wrap: normal;
+  font-weight: bold;
+  font-size: 32rpx;
 }
 .wux-filterbar__item--has-icon .wux-filterbar__text {
   padding-right: 40rpx
