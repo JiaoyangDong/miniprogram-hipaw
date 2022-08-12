@@ -6,6 +6,10 @@ Page({
    * Page initial data
    */
   data: {
+    user: {
+      name: "Annie Wang🐨",
+      profilepic: "https://res.cloudinary.com/dudzolqdz/image/upload/v1660285329/Screen_Shot_2022-08-12_at_2.21.10_PM_kiwgl6.png"
+    }
   },
 
   /**

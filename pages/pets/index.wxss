@@ -68,17 +68,45 @@ page {
   font-style: italic;
   display: flex;
   justify-content: center;
+  position: relative;
   /* font-weight: bold; */
   /* background-image: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)); */
 }
 
 .event-name {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: fit-content;
+  padding: 15rpx;
+  margin: 20rpx;
+  border-radius: 15rpx;
+  height: fit-content;
+  position: absolute;
+  top: 0;
+  right: 20rpx;
+}
+
+.event-location, .event-time {
   background-color: rgba(0, 0, 0, .5);
   width: fit-content;
   padding: 15rpx;
   margin: 20rpx;
   border-radius: 15rpx;
-  height: fit-content
+  height: fit-content;
+  position: absolute;
+  font-size: 24rpx;
+  font-style: normal;
+  font-weight: 500;
+  color: white;
+}
+
+.event-location {
+  bottom: 0;
+  left: 100rpx;
+}
+
+.event-time {
+  bottom: 0;
+  left: 0;
 }
 
 .cards-box {
@@ -124,7 +152,8 @@ page {
 .pet-location {
   position: absolute;
   color: white;
-  font-weight: bold;
+  font-size: 28rpx;
+  /* font-weight: bold; */
   bottom: 20rpx;
   right: 20rpx;
 }
