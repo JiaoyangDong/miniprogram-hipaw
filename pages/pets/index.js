@@ -34,24 +34,25 @@ Page({
         label: 'Filter',
         value: 'filter',
         checked: true,
+        // groups: ['001'],
         children: [
           {
             type: 'radio',
             label: 'Pet type',
-            value: 'pettype',
+            value: 'species',
             children: [
               {
                 label: 'All',
-                value: 'allpets',
+                value: 'all',
                 checked: true, // 默认选中
               },
               {
                 label: 'Dogs',
-                value: 'dogs',
+                value: 'dog',
               },
               {
                 label: 'Cats',
-                value: 'cats',
+                value: 'cat',
               },
               {
                 label: 'Other',
@@ -66,7 +67,7 @@ Page({
             children: [
               {
                 label: 'Any',
-                value: 'anysex',
+                value: 'all',
                 checked: true, // 默认选中
               },
               {
@@ -80,7 +81,8 @@ Page({
             ],
           },
           {
-            type: 'checkbox',
+            // type: 'checkbox',
+            type: 'radio',
             label: 'District',
             value: 'district',
             children: [
@@ -165,7 +167,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad(options) {
-    this.getRepos()
+    // this.getRepos()
   },
 
   /**
@@ -212,81 +214,68 @@ Page({
       }
     })
   },
-    onChange(e) {
-    const { checkedItems, items, checkedValues } = e.detail
-    const params = {}
-    console.log("e!!!!")
-    console.log(e)
-    // console.log(checkedItems, items, checkedValues)
+  onChange(e) {
+  const { checkedItems, items, checkedValues } = e.detail
+  const params = {filter: true}
+  console.log("From index.js - filter onChange: e" ,e)
+  console.log(checkedItems, items, checkedValues)
 
-    checkedItems.forEach((n) => {
-      if (n.checked) {
-        if (n.value === 'updated') {
-          const selected = n.children
-            .filter((n) => n.checked)
-            .map((n) => n.value)
-            .join(' ')
-          params.sort = n.value
-          params.order = selected
-        } else if (n.value === 'stars') {
-          params.sort = n.value
-          params.order = n.sort === 1 ? 'asc' : 'desc'
-        } else if (n.value === 'forks') {
-          params.sort = n.value
-        } else if (n.value === 'filter') {
-          n.children
-            .filter((n) => n.selected)
-            .forEach((n) => {
-              if (n.value === 'language') {
-                const selected = n.children
-                  .filter((n) => n.checked)
-                  .map((n) => n.value)
-                  .join(' ')
-                params.language = selected
-              } else if (n.value === 'query') {
-                const selected = n.children
-                  .filter((n) => n.checked)
-                  .map((n) => n.value)
-                  .join(' ')
-                params.query = selected
-              }
-            })
-        }
-      }
+  checkedItems.forEach((n) => {
+        n.children
+          .filter((n) => n.selected)
+          .forEach((n) => {
+            if (n.value === 'species') {
+              // params.species = n.selected
+              params.species  = n.children
+              .filter((n) => n.checked)
+              .map((n) => n.value)
+              .join(',')
+            } else if (n.value === 'sex') {
+              // params.sex = n.selected
+              params.sex  = n.children
+              .filter((n) => n.checked)
+              .map((n) => n.value)
+              .join(',')
+            } else if (n.value === 'district'){
+              // params.district = n.selected
+              params.district  = n.children
+              .filter((n) => n.checked)
+              .map((n) => n.value)
+              .join(',')
+            }
+          })
     })
-
-    console.log('params', params)
-
+    // console.log('From index.js - filter onChange: params', params)
     this.getRepos(params)
   },
   getRepos(params = {}) {
-    console.log("params!!", params)
-    const language = params.language || 'javascript'
-    const query = params.query || 'react'
-    const q = `${query}+language:${language}`
-    const data = Object.assign(
-      {
-        q,
-        order: 'desc',
-      },
-      params
-    )
+    console.log("From index.js - getRepos: params", params)
+    // const language = params.language || 'javascript'
+    // const query = params.query || 'react'
+    // const q = `${query}+language:${language}`
+    // const data = Object.assign(
+    //   {
+    //     q,
+    //     order: 'desc',
+    //   },
+    //   params
+    // )
 
-    wx.showLoading()
+    // wx.showLoading()
     wx.request({
-      url: `https://api.github.com/search/repositories`,
-      data,
+      url: `${app.globalData.baseURL}/pets`,
+      header: app.globalData.header,
+      data: params,
       success: (res) => {
         console.log(res)
-
-        wx.hideLoading()
-
+        // wx.hideLoading()
         this.setData({
-          repos: res.data.items.map((n) =>
-            Object.assign({}, n, {
-              date: n.created_at.substr(0, 7),
-            })
-          ),
+          pets: res.data
+        //   repos: res.data.items.map((n) =>
+        //     Object.assign({}, n, {
+        //       date: n.created_at.substr(0, 7),
+        //     })
+        //   ),
         })
       },
     })
