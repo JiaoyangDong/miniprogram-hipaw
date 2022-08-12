@@ -16,11 +16,6 @@
     <view style="padding-bottom: 8rpx;">More about me: {{pet.description}}</view>
   </view>
 
-    <button class="og-button">Meet & Greet</button>
-  <view class="sticky-bottom">
-    <button bindtap="edit" class="edit-btn" type="default" plain="true">edit</button>
-    <button bindtap="delete" class="delete-btn" type="warn" plain="true">delete</button>
-<!--
   <view class="sticky-bottom">
     <!-- <view class="meet-card"> -->
     <view class="meet-card" wx:if="{{isAdopter}}">
@@ -31,7 +26,6 @@
       <button style="width:40vw" bindtap="edit" class="edit-btn">edit</button>
       <button style="width:40vw" bindtap="delete" class="delete-btn">delete</button>
     </view>
--->
   </view>
 </view>
 
