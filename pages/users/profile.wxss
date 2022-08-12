@@ -39,7 +39,7 @@
 } */
 
 .pet-scroll-view {
-  height: 230rpx;
+  height: 240rpx;
   margin-bottom: 20rpx;
   /* background-color: #E4E4E4; */
   /* border: 1px solid rgba(0, 181, 163, 1); */
@@ -76,7 +76,7 @@
 .pet-card {
   height: 190rpx;
   width: 190rpx;
-  overflow: hidden;
+  /* overflow: hidden; */
   position: relative;
   border-radius: 14rpx;
   /* border: 1px solid rgba(0, 181, 163, 1); */
@@ -97,11 +97,10 @@
 
 .pet-image {
   position: absolute;
-  height: 200rpx;
-  width: 200rpx;
+  height: 190rpx;
+  width: 190rpx;
   overflow: hidden;
-  border-top-left-radius: 10rpx;
-  border-bottom-left-radius: 10rpx;
+  border-radius: 10rpx;
 }
 
 .pet-name, .pet-posted-at {
@@ -120,11 +119,11 @@
 }
 
 .pet-posted-at {
-  bottom: 6rpx;
-  left: 6rpx;
-  font-size: 18rpx;
-  font-weight: bold;
-  color: white;
+  bottom: -30rpx;
+  left:0rpx;
+  font-size: 20rpx;
+  /* font-weight: bold; */
+  color: black;
   z-index: 999;
 }
 
