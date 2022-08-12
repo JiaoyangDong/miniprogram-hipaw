@@ -91,8 +91,13 @@ Page({
           console.log("From show.js - booking submit successfully!")
           console.log("From show.js : res.data", res.data)
           const booking = res.data.booking;
-          wx.navigateTo({
-            url: `/pages/booking/show?id=${booking.id}`,
+          // wx.navigateTo({
+          //   url: `/pages/booking/show?id=${booking.id}`,
+          // })
+          console.log(page)
+          // page.onLoad()
+          wx.redirectTo({
+            url: `/pages/pets/show?id=${page.options.id}`,
           })
           // console.log("test date: ", page.data.date)
         } else {
