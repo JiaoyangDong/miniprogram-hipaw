@@ -52,9 +52,11 @@ Page({
             time: `${date.getHours()}:${date.getMinutes()}`
           });
           // console.log("From show.js - onshow: meeting date", res.data.my_booking.date_and_time)
-          page.setData({
-            dayRemaining: page.dayRemaining()
-          })
+          if (page.data.booking) {
+            page.setData({
+              dayRemaining: page.dayRemaining(page.data.booking.date_and_time)
+            })
+          }
           // console.log("From show.js - after onload: page.data ", page.data)
         } else {
           console.log("From show.js: status code is", res.statusCode)
@@ -175,9 +177,8 @@ Page({
     })
   },
 
-  dayRemaining() {
-    const page = this;
-    const meetingTime = new Date(page.data.booking.date_and_time)
+  dayRemaining(date) {
+    const meetingTime = new Date(date)
     const now = new Date()
     return Math.ceil((meetingTime - now) / 86400000);
   },
