@@ -1,11 +1,8 @@
-.picker{
-    padding: 16rpx;
-}
 .main {
   background: #ffffff;
   display: flex;
   justify-content: center;
-  margin-top: 40rpx;
+  margin-top: 20rpx;
   height: 100vh;
   font-family: Montserrat;
 }
@@ -21,12 +18,15 @@
 
 input {
   background-color: #F0EFEF;
-  border-radius: 120rpx;
+  border-radius: 20rpx;
   padding: 14rpx;
   margin-top: 14rpx;
+  padding-left: 40rpx;
+  font-family: Montserrat;
+  font-size: 12pt;
 }
 textarea {
   background-color: #F0EFEF;
-  border-radius: 80rpx;
+  border-radius: 20rpx;
   margin-top: 14rpx;
 }
